@@ -165,9 +165,18 @@ const Television = () => {
           </div>
         </div>
         {/* Call to action */}
-        <div className="text-center mt-10">
-          <p className="text-gray-700 mb-4 text-sm md:text-base">
-            Incluido en todos nuestros planes de internet
+        <div className="text-center ">
+          <p className="py-6 text-gray-700 mb-4 text-sm md:text-base">
+              El servicio de televisión es prestado por:{" "}
+            <a
+
+              href="https://webmastercolombia.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-bold hover:underline"
+            >
+              Web Master Colombia
+            </a>
           </p>
 
           <a
