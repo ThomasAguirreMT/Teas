@@ -2,8 +2,8 @@ import { useState } from "react";
 
 const plans = [
   {
-    speed:    "300",
-    price:    "$70.000",
+    speed:    "350",
+    price:    "$85.000",
     features: [
       "Navegación fluida y redes sociales",
       "Streaming HD",
@@ -11,33 +11,56 @@ const plans = [
       "Descarga de archivos livianos",
       "WiFi de uso doméstico",
     ],
-    whatsapp: "573001234567",
+    whatsapp: "573160542489",
     color:    { from: "#f97316", to: "#f59e0b" },
   },
   {
     speed:    "500",
-    price:    "$100.000",
+    price:    "$105.000",
     features: [
-      "Streaming en 4K sin interrupciones",
+      "Streaming en FHD sin interrupciones",
       "Gaming online con baja latencia",
       "Videollamadas en alta definición",
       "Múltiples dispositivos simultáneos",
       "WiFi de alto rendimiento",
     ],
-    whatsapp: "573001234567",
+    whatsapp: "573160542489",
     color:    { from: "#00ae9d", to: "#2dd4bf" },
   },
   {
-    speed:    "1000",
-    price:    "$150.000",
+    speed:    "700",
+    price:    "$125.000",
     features: [
-      "Fibra óptica simétrica 1 Gbps",
+      "Fibra óptica simétrica 700 Mps",
       "Ping ultra bajo para gaming",
-      "Streaming 4K en todos los dispositivos",
+      "Streaming 2K+ en todos los dispositivos",
       "Ideal para trabajo desde casa",
-      "Soporte técnico prioritario 24/7",
     ],
-    whatsapp: "573001234567",
+    whatsapp: "573160542489",
+    color:    { from: "#7c3aed", to: "#6366f1" },
+  },
+  {
+    speed:    "700",
+    price:    "$125.000",
+    features: [
+      "Fibra óptica simétrica 700 Mps",
+      "Ping ultra bajo para gaming",
+      "Streaming 2K+ en todos los dispositivos",
+      "Ideal para trabajo desde casa",
+    ],
+    whatsapp: "573160542489",
+    color:    { from: "#7c3aed", to: "#6366f1" },
+  },
+  {
+    speed:    "700",
+    price:    "$125.000",
+    features: [
+      "Fibra óptica simétrica 700 Mps",
+      "Ping ultra bajo para gaming",
+      "Streaming 2K+ en todos los dispositivos",
+      "Ideal para trabajo desde casa",
+    ],
+    whatsapp: "573160542489",
     color:    { from: "#7c3aed", to: "#6366f1" },
   },
 ];
@@ -275,7 +298,7 @@ export default function Plans() {
 
           <p className="text-center text-s font-bold uppercase tracking-widest mb-8 text-black"
           >
-            Todos nuestros planes incluyen fibra óptica simétrica
+            Todos nuestros planes incluyen fibra óptica y megas simétricas
           </p>
         </div>
 
