@@ -1,5 +1,5 @@
 import "./bannerTV.css";
-import gumball from "../../assets/television/gumball.webp";
+import gumball from "../../assets/television/mike.webp";
 import escandalosos from "../../assets/television/escandalosos.webp";
 import logo from "../../assets/television/logo.svg";
 
