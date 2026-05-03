@@ -137,23 +137,27 @@ const Television = () => {
 
         {/* Beneficios */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-          <div className="bg-white shadow-sm rounded-2xl p-4 text-center">
-            <p className="font-semibold text-gray-800">📺 +100 canales</p>
+          <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
+            <img src="public/Icons/televisor.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2"/>
+            <p className="font-semibold text-gray-800">+100 canales</p>
             <span className="text-sm text-gray-500">Variedad para todos</span>
           </div>
 
-          <div className="bg-white shadow-sm rounded-2xl p-4 text-center">
-            <p className="font-semibold text-gray-800">⚽ Deportes en vivo</p>
+          <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
+            <img src="public/Icons/deportes.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2"/>
+            <p className="font-semibold text-gray-800">Deportes en vivo</p>
             <span className="text-sm text-gray-500">Eventos y ligas</span>
           </div>
 
-          <div className="bg-white shadow-sm rounded-2xl p-4 text-center">
-            <p className="font-semibold text-gray-800">🎬 Películas y series</p>
+          <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
+            <img src="public/Icons/series.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2"/>
+            <p className="font-semibold text-gray-800">Películas y series</p>
             <span className="text-sm text-gray-500">Estrenos y clásicos</span>
           </div>
 
-          <div className="bg-white shadow-sm rounded-2xl p-4 text-center">
-            <p className="font-semibold text-gray-800">📡 Señal HD</p>
+          <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
+            <img src="public/Icons/antena.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2"/>
+            <p className="font-semibold text-gray-800">Señal HD</p>
             <span className="text-sm text-gray-500">Alta calidad</span>
           </div>
         </div>
