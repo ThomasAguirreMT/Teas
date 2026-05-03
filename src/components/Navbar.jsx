@@ -9,8 +9,8 @@ const navLinks = [
 ];
 
 const planesOptions = [
-  { path: "/planes?tipo=internet",    label: "Internet" },
-  { path: "/planes?tipo=internet-tv", label: "Internet + TV" },
+  { path: "/Internet",label: "Internet" },
+  { path: "/Television", label: "Internet + TV" },
 ];
 
 export default function Navbar() {
