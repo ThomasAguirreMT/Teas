@@ -12,7 +12,7 @@ export default function Contactanos() {
       setText(fullText.slice(0, i));
       i++;
       if (i > fullText.length) clearInterval(interval);
-    }, 40);
+    }, 75);
 
     return () => clearInterval(interval);
   }, []);

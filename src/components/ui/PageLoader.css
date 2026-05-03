@@ -1,0 +1,46 @@
+/* CONTENEDOR */
+.page-loader {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* MASCOTA */
+.loader-mascota img {
+  width: 120px;
+  animation: float 2s ease-in-out infinite;
+}
+
+/* TEXTO */
+.loader-text {
+  font-size: 15px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ANIMACIÓN FLOTANTE */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.loader-text::after {
+  content: "...";
+  animation: dots 1.5s steps(3, end) infinite;
+}
+
+@keyframes dots {
+  0% { content: "."; }
+  33% { content: ".."; }
+  66% { content: "..."; }
+}
