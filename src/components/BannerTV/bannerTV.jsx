@@ -1,6 +1,6 @@
 import "./bannerTV.css";
 import gumball from "../../assets/television/mike.webp";
-import escandalosos from "../../assets/television/escandalosos.webp";
+import escandalosos from "../../assets/mascota.png";
 import logo from "../../assets/television/logo.svg";
 
 
@@ -11,7 +11,7 @@ const Banner = () => {
       <div className="banner-container">
 
         {/* Personajes izquierda */}
-        <img src={escandalosos} alt="escandalosos" className="img-left" />
+        <img src={escandalosos} alt="escandalosos" className="img-left w-96" />
 
         {/* Texto */}
         <div className="banner-text">
@@ -24,18 +24,6 @@ const Banner = () => {
             <img src={logo} alt="logo" className="banner-logo" />
             <img src="/src/assets/LOGO TEAS COLOR.svg" alt="TEAS" className="w-36" />
           </div>
-          <p className="text-xs">
-            El servicio de televisión es prestado por:{" "}
-            <a
-
-              href="https://webmastercolombia.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-bold hover:underline"
-            >
-              Web Master Colombia
-            </a>
-          </p>
         </div>
 
         {/* Personaje derecha */}

@@ -1,7 +1,7 @@
 .banner {
   width: 100%;
   height: 280px;
-  background: linear-gradient(90deg, #10b981,  #1ea376);
+  background: linear-gradient(90deg, #00ae9d,  #2d4258);
   display: flex;
   align-items: center;
 
@@ -79,19 +79,19 @@
   top: -100px;
   height: 230px;
   z-index: 3;
-
+  
   animation: floatGumball 3s ease-in-out infinite;
   filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
 }
 @keyframes floatGumball {
   0% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(-8deg);
   }
   50% {
-    transform: translateY(-12px); /* 🔥 sube */
+    transform: translateY(-12px) rotate(-12deg);
   }
   100% {
-    transform: translateY(0px); /* 🔥 baja */
+    transform: translateY(0px) rotate(-8deg);
   }
 }
 
