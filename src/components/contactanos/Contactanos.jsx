@@ -1,89 +1,126 @@
-import "./Contactanos.css";
-import teo from "../../assets/mascota.png";
-export default function ContactoPagee() {
+import { useEffect, useState } from "react";
+import "./contactanos.css";
+import mascota from "../../assets/mascota.png";
+
+export default function Contactanos() {
+  const fullText = "Conectividad confiable para tu hogar y empresa";
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setText(fullText.slice(0, i));
+      i++;
+      if (i > fullText.length) clearInterval(interval);
+    }, 40);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="contacto-page">
-      
+    <section className="contacto">
+
       {/* HERO */}
-      <section className="hero">
-        <div className="hero-content">
-          <span className="badge">📡 Internet de alta velocidad</span>
-          <h1>Internet rápido y estable en tu zona</h1>
-          <p>
-            Conecta tu hogar o empresa en menos de 48 horas con soporte técnico 24/7.
-          </p>
-          <div className="hero-buttons">
-            <button className="btn-primary">Ver cobertura</button>
-            <button className="btn-secondary">Contratar ahora</button>
-          </div>
-        </div>
-      </section>
+      <div className="contacto-hero">
+        <span className="contacto-badge">CONTACTO</span>
 
-      {/* BENEFICIOS */}
-      <section className="beneficios">
-        <div className="beneficio">
-          🚀 <p>Alta velocidad real</p>
-        </div>
-        <div className="beneficio">
-          📡 <p>Cobertura amplia</p>
-        </div>
-        <div className="beneficio">
-          🛠 <p>Soporte 24/7</p>
-        </div>
-        <div className="beneficio">
-          🔒 <p>Conexión estable</p>
-        </div>
-      </section>
+        <h1 className="contacto-title">
+          {text}
+          <span className="cursor">|</span>
+        </h1>
 
-      {/* CONTACTO */}
-      <section className="contacto">
-        <div className="contacto-left">
-          <h2>Empieza hoy sin compromiso</h2>
-          <p>
-            Un asesor te llamará en menos de 2 horas para confirmar cobertura en tu zona.
+        <p>
+          Verifica cobertura, resuelve dudas o contrata tu servicio en minutos.
+          Nuestro equipo está listo para ayudarte.
+        </p>
+      </div>
+
+      {/* CONTENIDO */}
+      <div className="contacto-container">
+
+        {/* IZQUIERDA */}
+        <div className="contacto-info">
+
+          <h3 className="info-title">Empieza hoy mismo</h3>
+
+          <p className="info-desc">
+            Un asesor te contactará en menos de <strong>2 horas</strong> para validar cobertura
+            y ofrecerte el mejor plan disponible.
           </p>
 
-          <div className="info">
-            <p>📞 01 8000 123 456</p>
-            <p>💬 +57 315 555 0100</p>
-            <p>✉ hola@teas.com.co</p>
+          <div className="contacto-datos">
+
+            <a href="tel:018000123456" className="contacto-item">
+              <div>
+                <span>Línea nacional</span>
+                <p>01 8000 123 456</p>
+              </div>
+            </a>
+
+            <a
+              href="https://wa.me/573155550100"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contacto-item"
+            >
+              <div>
+                <span>WhatsApp</span>
+                <p>+57 315 555 0100</p>
+              </div>
+            </a>
+
+            <a href="mailto:hola@teas.com.co" className="contacto-item">
+              <div>
+                <span>Email</span>
+                <p>hola@teas.com.co</p>
+              </div>
+            </a>
+
           </div>
 
-          {/* Mascota */}
-          <div className="mascota">
-            <img src={teo} alt="Teo mascota" />
-            <p>Hola, soy Teo 👋 te ayudo a verificar cobertura</p>
+          {/* MASCOTA */}
+          <div className="contacto-mascota">
+            <img src={mascota} alt="Teo" />
+
+            <div className="mascota-box">
+              <p>
+                 Hola, soy <strong>Teo</strong><br />
+                Te ayudo a validar tu cobertura en segundos
+              </p>
+            </div>
           </div>
+
         </div>
 
-        <div className="contacto-right">
+        {/* DERECHA - FORMULARIO */}
+        <div className="contacto-form">
           <h3>Verifica cobertura ahora</h3>
 
-          <form className="form">
+          <form>
             <input type="text" placeholder="Nombre completo" required />
             <input type="email" placeholder="Correo electrónico" required />
             <input type="tel" placeholder="Teléfono / WhatsApp" required />
 
             <select>
-              <option>Seleccionar plan...</option>
+              <option>Seleccionar plan</option>
               <option>100 MB</option>
               <option>300 MB</option>
               <option>500 MB</option>
             </select>
 
-            <button type="submit" className="btn-primary">
+            <button type="submit">
               Solicitar información →
             </button>
 
-            <div className="extra">
+            <div className="contacto-extra">
               <p>✔ Respuesta en menos de 2 horas</p>
               <p>✔ Instalación rápida</p>
               <p>✔ Sin costos ocultos</p>
             </div>
           </form>
         </div>
-      </section>
 
-    </div>
+      </div>
+    </section>
   );
 }
