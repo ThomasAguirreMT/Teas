@@ -1,5 +1,77 @@
 import React from 'react'
 import PrismaticBurst from '../components/PrismaticBurst/PrismaticBurst';
+import TextType from '../components/TextType/TextType';
+
+const plans = [
+  {
+    id: 1,
+    speed:    "200",
+    price:    "$65.000",
+    features: [
+      "Navegación fluida y redes sociales",
+      "Streaming HD",
+      "Videollamadas estables",
+      "Descarga de archivos livianos",
+      "WiFi de uso doméstico",
+    ],
+    whatsapp: "573160542489",
+    color:    { from: "#f97316", to: "#f59e0b" },
+  },
+  {
+    id:2,
+    speed:    "350",
+    price:    "$85.000",
+    features: [
+      "Streaming en FHD sin interrupciones",
+      "Gaming online con baja latencia",
+      "Videollamadas en alta definición",
+      "Múltiples dispositivos simultáneos",
+      "WiFi de alto rendimiento",
+    ],
+    whatsapp: "573160542489",
+    color:    { from: "#00ae9d", to: "#2dd4bf" },
+  },
+  {
+    id:3,
+    speed:    "500",
+    price:    "$105.000",
+    features: [
+      "Fibra óptica simétrica 700 Mps",
+      "Ping ultra bajo para gaming",
+      "Streaming 2K+ en todos los dispositivos",
+      "Ideal para trabajo desde casa",
+    ],
+    whatsapp: "573160542489",
+    color:    { from: "#7c3aed", to: "#6366f1" },
+  },
+  {
+    id:4,
+    speed:    "700",
+    price:    "$125.000",
+    features: [
+      "Fibra óptica simétrica 700 Mps",
+      "Ping ultra bajo para gaming",
+      "Streaming 2K+ en todos los dispositivos",
+      "Ideal para trabajo desde casa",
+    ],
+    whatsapp: "573160542489",
+    color:    { from: "#7c3aed", to: "#6366f1" },
+  },
+  {
+    id: 5,
+    speed:    "920",
+    price:    "$150.000",
+    title: "PLAN GAMER",
+    features: [
+      "Fibra óptica simétrica 700 Mps",
+      "Ping ultra bajo para gaming",
+      "Streaming 2K+ en todos los dispositivos",
+      "Ideal para trabajo desde casa",
+    ],
+    whatsapp: "573160542489",
+    color:    { from: "#7c3aed", to: "#6366f1" },
+  },
+];
 
 const Internet = () => {
   return (
@@ -44,26 +116,28 @@ const Internet = () => {
               textShadow: '0 0 60px rgba(0,174,157,0.4), 0 2px 24px rgba(0,0,0,0.6)',
             }}
           >
-            Internet
+            <TextType
+              text={["Internet de alta velocidad", "Sin interrupciones", "Sin excusas!"]}
+              typingSpeed={60}
+              pauseDuration={1500}
+              showCursor
+              cursorCharacter=""
+              texts={["", ""]}
+              deletingSpeed={100}
+              variableSpeedEnabled={false}
+              variableSpeedMin={60}
+              variableSpeedMax={120}
+              cursorBlinkDuration={0.5}
+            />
             <br />
             <span style={{
-              
             }}>
-              Sin Límites
             </span>
           </h1>
-
-          <p
-            className="text-center font-medium uppercase mt-5"
-            style={{
-              fontSize: 'clamp(0.65rem, 1.8vw, 0.9rem)',
-              letterSpacing: 'clamp(0.2em, 1vw, 0.35em)',
-              color: 'rgba(255,255,255,0.5)',
-            }}
-          >
-            velocidad · estabilidad · futuro
-          </p>
         </div>
+      </div>
+      <div>
+
       </div>
     </>
   )
