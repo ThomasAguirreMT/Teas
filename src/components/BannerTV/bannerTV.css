@@ -1,0 +1,140 @@
+.banner {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(90deg, #1aa7d7, #2e3c8f);
+  display: flex;
+  align-items: center;
+
+  overflow: visible; 
+  position: relative;
+}
+.banner-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner-logo {
+  right: 290px;
+  height: 160px;
+  margin-top: 1%;
+
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+}
+
+/* TEXTO */
+.banner-text {
+  text-align: left;
+  color: white;
+  z-index: 7;
+  position: absolute;
+  right: 230px;
+  
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1px; 
+}
+
+.banner-text h1 {
+  font-size: 40px;
+  font-weight: 800;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.2;
+}
+
+
+
+
+
+.logo-container img {
+  height: 60px;
+
+}
+
+
+/* IMAGEN IZQUIERDA */
+.img-left {
+  position: absolute;
+
+  left: -40px;
+  bottom: 0;
+  height: 100%;
+  max-height: 250px;
+}
+
+
+/* IMAGEN DERECHA */
+
+
+.img-right {
+  position: absolute;
+  right: -10px;
+  top: -100px;
+  height: 230px;
+  z-index: 3;
+
+  animation: floatGumball 3s ease-in-out infinite;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+}
+@keyframes floatGumball {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px); /* 🔥 sube */
+  }
+  100% {
+    transform: translateY(0px); /* 🔥 baja */
+  }
+}
+
+.img-right {
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+}
+
+
+/* =========================
+   MOBILE SOLO GUMBALL
+========================= */
+@media (max-width: 600px) {
+
+  /* ocultar imagen izquierda */
+  .img-left {
+    display: none;
+  }
+
+  /* centrar y ajustar Gumball */
+  .img-right {
+    right: -1px;
+    top: -60px;
+    height: 140px;
+    z-index: 2;
+  }
+
+  /* ajustar texto para que no choque */
+  .banner-text {
+    position: relative;
+    right: auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .banner-text h1 {
+    font-size: 22px;
+  }
+
+  /* logo opcional ajuste */
+  .banner-logo {
+    right: auto;
+    position: relative;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+}

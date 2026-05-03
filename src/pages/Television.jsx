@@ -3,6 +3,7 @@ import { GridScan } from '../components/GridScan/GridScan';
 import TiltedCard from '../components/TiltedCard/TiltedCard';
 import PlansTV from '../components/PlansTv/PlansTV';
 import ChannelsCarousel from "../components/carousels/ChannelsCarousel";
+import Banner from '../components/BannerTV/bannerTV';
 
 const Television = () => {
   return (
@@ -139,7 +140,7 @@ const Television = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
             <img src="public/Icons/televisor.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2"/>
-            <p className="font-semibold text-gray-800">+100 canales</p>
+            <p className="font-semibold text-gray-800">+150 canales</p>
             <span className="text-sm text-gray-500">Variedad para todos</span>
           </div>
 
@@ -157,7 +158,7 @@ const Television = () => {
 
           <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
             <img src="public/Icons/antena.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2"/>
-            <p className="font-semibold text-gray-800">Señal HD</p>
+            <p className="font-semibold text-gray-800">Señal FHD</p>
             <span className="text-sm text-gray-500">Alta calidad</span>
           </div>
         </div>
@@ -181,8 +182,10 @@ const Television = () => {
             Activar TV Digital
           </a>
         </div>
-
       </div>
+        <div>
+          <Banner />
+        </div>
     </div>
   );
 };
