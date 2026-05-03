@@ -1,26 +1,27 @@
-import Navbar   from "./components/Navbar";
-import Hero     from "./components/Hero";
-import Plans    from "./components/Plans";
-import Stats from "./components/Stats";
-import Coverage from "./components/Coverage";
-import Features from "./components/Features";
-import FAQ      from "./components/FAQ";
-import Contact  from "./components/Contact";
-import Footer   from "./components/Footer";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+import HomePage     from "./pages/HomePage";
+import PlanesPage   from "./pages/PlanesPage";
+import CoberturaPage from "./pages/CoberturaPage";
+import NosotrosPage  from "./pages/NosotrosPage";
+import ContactoPage  from "./pages/ContactoPage";
 
 export default function App() {
   return (
     <>
       <Navbar />
       <main>
-        <Hero />
-        <Stats />
-         <Plans />
-         {/*
-        <Coverage />
-        <Features />
-        <FAQ />
-        <Contact /> */}
+        <Routes>
+          <Route path="/"          element={<HomePage />} />
+          <Route path="/planes"    element={<PlanesPage />} />
+          <Route path="/cobertura" element={<CoberturaPage />} />
+          <Route path="/nosotros"  element={<NosotrosPage />} />
+          <Route path="/contacto"  element={<ContactoPage />} />
+          {/* Ruta comodín: redirige a inicio */}
+          <Route path="*"          element={<HomePage />} />
+        </Routes>
       </main>
       <Footer />
     </>
