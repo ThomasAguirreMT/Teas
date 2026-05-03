@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import HomePage     from "./pages/HomePage";
@@ -8,6 +7,7 @@ import CoberturaPage from "./pages/CoberturaPage";
 import NosotrosPage  from "./pages/NosotrosPage";
 import ContactoPage  from "./pages/ContactoPage";
 import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
+import Navbar from "./components/navbar/nav";
 
 export default function App() {
   return (

@@ -1,0 +1,151 @@
+.contacto-page {
+  font-family: "Inter", sans-serif;
+  color: #0f172a;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin: 20px 0;
+}
+
+.hero p {
+  opacity: 0.8;
+  max-width: 600px;
+  margin: auto;
+}
+
+.badge {
+  background: #10b981;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #059669;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* BENEFICIOS */
+.beneficios {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+  background: #f1f5f9;
+  flex-wrap: wrap;
+}
+
+.beneficio {
+  text-align: center;
+  font-size: 18px;
+  margin: 10px;
+}
+
+/* CONTACTO */
+.contacto {
+  display: flex;
+  padding: 60px 20px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.contacto-left {
+  flex: 1;
+}
+
+.contacto-left h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.info p {
+  margin: 10px 0;
+}
+
+.mascota {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.mascota img {
+  width: 180px;
+}
+
+.mascota p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* FORM */
+.contacto-right {
+  flex: 1;
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 16px;
+}
+
+.contacto-right h3 {
+  margin-bottom: 20px;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #cbd5f5;
+  border-radius: 8px;
+}
+
+.form button {
+  width: 100%;
+}
+
+.extra {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #475569;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contacto {
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+}
