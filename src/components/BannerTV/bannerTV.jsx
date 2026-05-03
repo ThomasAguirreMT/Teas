@@ -11,7 +11,7 @@ const Banner = () => {
       <div className="banner-container">
 
         {/* Personajes izquierda */}
-        <img src={escandalosos} alt="escandalosos" className="img-left w-96" />
+        <img src={escandalosos} alt="escandalosos" className="img-left w-96 " />
 
         {/* Texto */}
         <div className="banner-text">

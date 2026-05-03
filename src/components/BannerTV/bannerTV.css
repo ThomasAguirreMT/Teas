@@ -66,7 +66,7 @@
   left: -40px;
   bottom: 0;
   height: 100%;
-  max-height: 250px;
+  max-height: 400px;
 }
 
 
@@ -79,19 +79,20 @@
   top: -100px;
   height: 230px;
   z-index: 3;
-  
+
   animation: floatGumball 3s ease-in-out infinite;
   filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
 }
+
 @keyframes floatGumball {
   0% {
-    transform: translateY(0px) rotate(-8deg);
+    transform: translateY(0px) rotate(-20deg);
   }
   50% {
-    transform: translateY(-12px) rotate(-12deg);
+    transform: translateY(-12px) rotate(-20deg); /* 👈 mantiene inclinación */
   }
   100% {
-    transform: translateY(0px) rotate(-8deg);
+    transform: translateY(0px) rotate(-20deg);
   }
 }
 
@@ -112,10 +113,14 @@
 
   /* centrar y ajustar Gumball */
   .img-right {
+
+    display: none;
+    /* 
     right: -1px;
     top: -60px;
     height: 140px;
     z-index: 2;
+    */
   }
 
   /* ajustar texto para que no choque */

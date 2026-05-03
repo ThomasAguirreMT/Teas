@@ -116,8 +116,8 @@ const Television = () => {
         </div>
       </div>
       <div>
-        <PlansTV /> 
-        
+        <PlansTV />
+
       </div>
       <div className="carouseTV py-10 px-4 md:px-8 lg:px-16">
         {/* Encabezado */}
@@ -135,39 +135,35 @@ const Television = () => {
             Vive una experiencia de entretenimiento sin interrupciones.
           </p>
         </div>
-
+        <div className="w-full py-8">
+          <ChannelsCarousel />
+        </div>
         {/* Beneficios */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
-            <img src="public/Icons/televisor.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2"/>
+            <img src="public/Icons/televisor.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2" />
             <p className="font-semibold text-gray-800">+150 canales</p>
             <span className="text-sm text-gray-500">Variedad para todos</span>
           </div>
 
           <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
-            <img src="public/Icons/deportes.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2"/>
+            <img src="public/Icons/deportes.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2" />
             <p className="font-semibold text-gray-800">Deportes en vivo</p>
             <span className="text-sm text-gray-500">Eventos y ligas</span>
           </div>
 
           <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
-            <img src="public/Icons/series.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2"/>
+            <img src="public/Icons/series.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2" />
             <p className="font-semibold text-gray-800">Películas y series</p>
             <span className="text-sm text-gray-500">Estrenos y clásicos</span>
           </div>
 
           <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
-            <img src="public/Icons/antena.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2"/>
+            <img src="public/Icons/antena.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2" />
             <p className="font-semibold text-gray-800">Señal FHD</p>
             <span className="text-sm text-gray-500">Alta calidad</span>
           </div>
         </div>
-
-        {/* Carrusel */}
-        <div className="w-full">
-          <ChannelsCarousel />
-        </div>
-
         {/* Call to action */}
         <div className="text-center mt-10">
           <p className="text-gray-700 mb-4 text-sm md:text-base">
@@ -182,10 +178,12 @@ const Television = () => {
             Activar TV Digital
           </a>
         </div>
+        {/* Carrusel */}
+        
       </div>
-        <div>
-          <Banner />
-        </div>
+      <div>
+        <Banner />
+      </div>
     </div>
   );
 };
