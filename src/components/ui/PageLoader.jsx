@@ -1,4 +1,4 @@
-import "./pageLoader.css";
+import "./PageLoader.css";
 import mascota from "../../assets/mascota.png";
 
 export default function PageLoader() {
