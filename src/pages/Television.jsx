@@ -1,5 +1,7 @@
 import React from 'react';
 import { GridScan } from '../components/GridScan/GridScan';
+import TiltedCard from '../components/TiltedCard/TiltedCard';
+import PlansTV from '../components/PlansTv/PlansTV';
 
 const Television = () => {
   return (
@@ -105,11 +107,14 @@ const Television = () => {
                 textTransform: 'uppercase',
               }}
             >
-              TEAS · 150+ Canales · 4K
+              + 150 Canales · FHD
             </span>
             <div className="h-px w-8 sm:w-14" style={{ background: 'rgba(0,174,157,0.3)' }} />
           </div>
         </div>
+      </div>
+      <div>
+        <PlansTV /> 
       </div>
     </div>
   );

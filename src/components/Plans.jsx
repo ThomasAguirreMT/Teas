@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const plans = [
   {
@@ -39,34 +39,17 @@ const plans = [
     whatsapp: "573160542489",
     color:    { from: "#7c3aed", to: "#6366f1" },
   },
-  {
-    speed:    "700",
-    price:    "$125.000",
-    features: [
-      "Fibra óptica simétrica 700 Mps",
-      "Ping ultra bajo para gaming",
-      "Streaming 2K+ en todos los dispositivos",
-      "Ideal para trabajo desde casa",
-    ],
-    whatsapp: "573160542489",
-    color:    { from: "#7c3aed", to: "#6366f1" },
-  },
-  {
-    speed:    "700",
-    price:    "$125.000",
-    features: [
-      "Fibra óptica simétrica 700 Mps",
-      "Ping ultra bajo para gaming",
-      "Streaming 2K+ en todos los dispositivos",
-      "Ideal para trabajo desde casa",
-    ],
-    whatsapp: "573160542489",
-    color:    { from: "#7c3aed", to: "#6366f1" },
-  },
 ];
 
-function PlanCard({ plan }) {
+function PlanCard({ plan, index }) {
   const [flipped, setFlipped] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const cardRef               = useRef(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), index * 150 + 100);
+    return () => clearTimeout(timer);
+  }, [index]);
 
   const msg = encodeURIComponent(
     `Hola, estoy interesado en el plan de ${plan.speed} Mbps por ${plan.price} mensuales. ¿Me pueden dar más información?`
@@ -74,18 +57,25 @@ function PlanCard({ plan }) {
 
   return (
     <div
+      ref={cardRef}
       className="relative w-full cursor-pointer"
-      style={{ height: "440px", perspective: "1200px" }}
+      style={{
+        height:     "440px",
+        perspective: "1200px",
+        opacity:     visible ? 1 : 0,
+        transform:   visible ? "translateY(0px)" : "translateY(40px)",
+        transition:  "opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)",
+      }}
       onClick={() => setFlipped(f => !f)}
     >
       <div
         style={{
-          position:        "relative",
-          width:           "100%",
-          height:          "100%",
-          transformStyle:  "preserve-3d",
-          transition:      "transform 0.6s cubic-bezier(0.4,0.2,0.2,1)",
-          transform:       flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+          position:       "relative",
+          width:          "100%",
+          height:         "100%",
+          transformStyle: "preserve-3d",
+          transition:     "transform 0.6s cubic-bezier(0.4,0.2,0.2,1)",
+          transform:      flipped ? "rotateY(180deg)" : "rotateY(0deg)",
         }}
       >
 
@@ -93,11 +83,11 @@ function PlanCard({ plan }) {
         <div
           className="absolute inset-0 rounded-3xl overflow-hidden flex flex-col"
           style={{
-            backfaceVisibility: "hidden",
+            backfaceVisibility:       "hidden",
             WebkitBackfaceVisibility: "hidden",
-            background: `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
-            padding:    "6px",
-            boxShadow:  `0 8px 32px ${plan.color.from}40`,
+            background:               `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
+            padding:                  "6px",
+            boxShadow:                `0 8px 32px ${plan.color.from}40`,
           }}
         >
           <div
@@ -145,8 +135,8 @@ function PlanCard({ plan }) {
             <button
               className="w-full py-3 rounded-2xl font-bold text-sm transition-all"
               style={{
-                background: "#1a2d42",
-                color:      "#ffffff",
+                background:    "#1a2d42",
+                color:         "#ffffff",
                 letterSpacing: "0.02em",
               }}
               onClick={e => { e.stopPropagation(); setFlipped(true); }}
@@ -160,12 +150,12 @@ function PlanCard({ plan }) {
         <div
           className="absolute inset-0 rounded-3xl overflow-hidden flex flex-col"
           style={{
-            backfaceVisibility: "hidden",
+            backfaceVisibility:       "hidden",
             WebkitBackfaceVisibility: "hidden",
-            transform:   "rotateY(180deg)",
-            background:  `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
-            padding:     "6px",
-            boxShadow:   `0 8px 32px ${plan.color.from}40`,
+            transform:                "rotateY(180deg)",
+            background:               `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
+            padding:                  "6px",
+            boxShadow:                `0 8px 32px ${plan.color.from}40`,
           }}
         >
           <div
@@ -176,10 +166,7 @@ function PlanCard({ plan }) {
             <div>
               <h3
                 className="font-display font-extrabold mb-4"
-                style={{
-                  fontSize: "1.3rem",
-                  color:    "#1a2d42",
-                }}
+                style={{ fontSize: "1.3rem", color: "#1a2d42" }}
               >
                 Plan {plan.speed} Mbps
               </h3>
@@ -296,8 +283,7 @@ export default function Plans() {
             </span>
           </h2>
 
-          <p className="text-center text-s font-bold uppercase tracking-widest mb-8 text-black"
-          >
+          <p className="text-center text-s font-bold uppercase tracking-widest mb-8 text-black">
             Todos nuestros planes incluyen fibra óptica y megas simétricas
           </p>
         </div>
@@ -305,17 +291,18 @@ export default function Plans() {
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {plans.map((plan, i) => (
-            <PlanCard key={i} plan={plan} />
+            <PlanCard key={i} plan={plan} index={i} />
           ))}
         </div>
 
         {/* Nota inferior */}
-        <p className="text-center text-s font-bold uppercase tracking-widest mb-8 text-black py-6" >
+        <p className="text-center text-s font-bold uppercase tracking-widest mb-8 text-black py-6">
           * Todos los precios incluyen IVA. Velocidades simétricas de bajada y subida.
           Haz clic en cada plan para ver los detalles.
         </p>
 
       </div>
+      
     </section>
   );
 }
