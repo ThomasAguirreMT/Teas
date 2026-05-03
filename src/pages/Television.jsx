@@ -2,6 +2,7 @@ import React from 'react';
 import { GridScan } from '../components/GridScan/GridScan';
 import TiltedCard from '../components/TiltedCard/TiltedCard';
 import PlansTV from '../components/PlansTv/PlansTV';
+import ChannelsCarousel from "../components/carousels/ChannelsCarousel";
 
 const Television = () => {
   return (
@@ -115,6 +116,68 @@ const Television = () => {
       </div>
       <div>
         <PlansTV /> 
+        
+      </div>
+      <div className="carouseTV py-10 px-4 md:px-8 lg:px-16">
+        {/* Encabezado */}
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <p className="text-sm md:text-base font-semibold uppercase tracking-widest text-gray-500 mb-2">
+            Televisión Digital
+          </p>
+
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 leading-snug">
+            Disfruta lo mejor del <span className="text-indigo-600">deporte, películas y series</span>
+          </h1>
+
+          <p className="text-sm md:text-lg text-gray-600 mt-4">
+            Accede a una amplia variedad de canales en alta calidad, con contenido para toda la familia.
+            Vive una experiencia de entretenimiento sin interrupciones.
+          </p>
+        </div>
+
+        {/* Beneficios */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          <div className="bg-white shadow-sm rounded-2xl p-4 text-center">
+            <p className="font-semibold text-gray-800">📺 +100 canales</p>
+            <span className="text-sm text-gray-500">Variedad para todos</span>
+          </div>
+
+          <div className="bg-white shadow-sm rounded-2xl p-4 text-center">
+            <p className="font-semibold text-gray-800">⚽ Deportes en vivo</p>
+            <span className="text-sm text-gray-500">Eventos y ligas</span>
+          </div>
+
+          <div className="bg-white shadow-sm rounded-2xl p-4 text-center">
+            <p className="font-semibold text-gray-800">🎬 Películas y series</p>
+            <span className="text-sm text-gray-500">Estrenos y clásicos</span>
+          </div>
+
+          <div className="bg-white shadow-sm rounded-2xl p-4 text-center">
+            <p className="font-semibold text-gray-800">📡 Señal HD</p>
+            <span className="text-sm text-gray-500">Alta calidad</span>
+          </div>
+        </div>
+
+        {/* Carrusel */}
+        <div className="w-full">
+          <ChannelsCarousel />
+        </div>
+
+        {/* Call to action */}
+        <div className="text-center mt-10">
+          <p className="text-gray-700 mb-4 text-sm md:text-base">
+            Incluido en todos nuestros planes de internet
+          </p>
+
+          <a
+            href="https://wa.me/573160542489"
+            target="_blank"
+            className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-xl transition"
+          >
+            Activar TV Digital
+          </a>
+        </div>
+
       </div>
     </div>
   );
