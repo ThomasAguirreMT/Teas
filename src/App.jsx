@@ -21,16 +21,20 @@ const InternetPage = lazy(() => import("./pages/Internet"));
 const TelevisionPage = lazy(() => import("./pages/Television"));
 
 /* =========================
-   SCROLL TOP
+   SCROLL TOP (FIX REAL)
 ========================= */
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    // Scroll inmediato (estable)
+    window.scrollTo(0, 0);
+
+    // Refuerzo por lazy loading (evita bug intermitente)
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 50);
+
   }, [pathname]);
 
   return null;
