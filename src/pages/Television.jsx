@@ -7,14 +7,17 @@ import Banner from '../components/BannerTV/bannerTV';
 
 const Television = () => {
   return (
-    <div className="w-full">
-      {/* Contenedor principal — altura adaptable según viewport */}
+    <div className="w-full overflow-x-hidden">
+
+      {/* ══════════════════════════════
+          HERO — GridScan background
+      ══════════════════════════════ */}
       <div
-        className="relative w-full overflow-hidden"
-        style={{ minHeight: 'clamp(420px, 80vh, 720px)' }}
+        className="relative w-full"
+        style={{ height: 'clamp(480px, 80vh, 920px)' }}
       >
-        {/* ── Fondo GridScan ── */}
-        <div className="absolute inset-0">
+        {/* GridScan fondo */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none">
           <GridScan
             sensitivity={0.55}
             lineThickness={1}
@@ -29,42 +32,40 @@ const Television = () => {
           />
         </div>
 
-        {/* ── Capa oscura suave ── */}
+        {/* Capa oscura */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: 'rgba(10, 18, 30, 0.45)' }}
         />
 
-        {/* ── Contenido ── */}
-        <div
-          className="relative z-10 flex flex-col items-center justify-center h-full w-full px-4 sm:px-8"
-          style={{ minHeight: 'clamp(420px, 80vh, 720px)' }}
-        >
+        {/* Contenido hero */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full w-full px-4 sm:px-8">
+
           {/* Badge */}
           <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-6 sm:mb-8"
+            className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border mb-5 sm:mb-8"
             style={{
               background: 'rgba(0,174,157,0.08)',
               borderColor: 'rgba(0,174,157,0.3)',
               color: '#2dd4bf',
-              fontSize: 'clamp(0.6rem, 1.5vw, 0.72rem)',
+              fontSize: 'clamp(0.58rem, 1.5vw, 0.72rem)',
               fontWeight: 800,
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
             }}
           >
             <span
-              className="w-1.5 h-1.5 rounded-full animate-pulse"
+              className="w-1.5 h-1.5 rounded-full animate-pulse flex-shrink-0"
               style={{ background: '#00ae9d' }}
             />
             Ahora disponible
           </div>
 
-          {/* Título principal */}
+          {/* Título */}
           <h1
             className="font-display font-extrabold text-center leading-tight"
             style={{
-              fontSize: 'clamp(2.4rem, 8vw, 7rem)',
+              fontSize: 'clamp(2.4rem, 10vw, 7rem)',
               letterSpacing: '-0.02em',
               maxWidth: '14ch',
               color: '#ffffff',
@@ -87,10 +88,10 @@ const Television = () => {
 
           {/* Subtítulo */}
           <p
-            className="text-center font-medium uppercase mt-4 sm:mt-6"
+            className="text-center font-medium uppercase mt-3 sm:mt-5"
             style={{
-              fontSize: 'clamp(0.7rem, 2vw, 1rem)',
-              letterSpacing: 'clamp(0.2em, 1vw, 0.35em)',
+              fontSize: 'clamp(0.65rem, 2vw, 1rem)',
+              letterSpacing: 'clamp(0.18em, 1vw, 0.35em)',
               color: 'rgba(255,255,255,0.55)',
             }}
           >
@@ -98,7 +99,7 @@ const Television = () => {
           </p>
 
           {/* Línea decorativa */}
-          <div className="flex items-center gap-3 mt-6 sm:mt-8">
+          <div className="flex items-center gap-3 mt-5 sm:mt-8">
             <div className="h-px w-8 sm:w-14" style={{ background: 'rgba(0,174,157,0.3)' }} />
             <span
               style={{
@@ -107,6 +108,7 @@ const Television = () => {
                 fontWeight: 600,
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
+                whiteSpace: 'nowrap',
               }}
             >
               + 150 Canales · FHD
@@ -115,84 +117,89 @@ const Television = () => {
           </div>
         </div>
       </div>
-      <div>
-        <PlansTV />
 
-      </div>
-      <div className="carouseTV py-10 px-4 md:px-8 lg:px-16">
+      {/* ══════════════════════════════
+          PLANES TV
+      ══════════════════════════════ */}
+      <PlansTV />
+
+      {/* ══════════════════════════════
+          SECCIÓN CANALES + BENEFICIOS
+      ══════════════════════════════ */}
+      <div className="w-full py-10 px-4 sm:px-8 lg:px-16">
+
         {/* Encabezado */}
-        <div className="text-center max-w-3xl mx-auto mb-8">
-          <p className="text-sm md:text-base font-semibold uppercase tracking-widest text-gray-500 mb-2">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-500 mb-2">
             Televisión Digital
           </p>
-
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 leading-snug">
-            Disfruta lo mejor del <span className="text-indigo-600">deporte, películas y series</span>
-          </h1>
-
-          <p className="text-sm md:text-lg text-gray-600 mt-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
+            Disfruta lo mejor del{' '}
+            <span className="text-indigo-600">deporte, películas y series</span>
+          </h2>
+          <p className="text-sm sm:text-base text-gray-600 mt-4 leading-relaxed">
             Accede a una amplia variedad de canales en alta calidad, con contenido para toda la familia.
             Vive una experiencia de entretenimiento sin interrupciones.
           </p>
         </div>
-        <div className="w-full py-8">
+
+        {/* Carrusel de canales */}
+        <div className="w-full py-6 sm:py-8">
           <ChannelsCarousel />
         </div>
+
         {/* Beneficios */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-          <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
-            <img src="public/Icons/televisor.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2" />
-            <p className="font-semibold text-gray-800">+150 canales</p>
-            <span className="text-sm text-gray-500">Variedad para todos</span>
-          </div>
-
-          <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
-            <img src="public/Icons/deportes.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2" />
-            <p className="font-semibold text-gray-800">Deportes en vivo</p>
-            <span className="text-sm text-gray-500">Eventos y ligas</span>
-          </div>
-
-          <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
-            <img src="public/Icons/series.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2" />
-            <p className="font-semibold text-gray-800">Películas y series</p>
-            <span className="text-sm text-gray-500">Estrenos y clásicos</span>
-          </div>
-
-          <div className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center">
-            <img src="public/Icons/antena.png" alt="" className="w-14 h-14 object-contain mx-auto mb-2" />
-            <p className="font-semibold text-gray-800">Señal FHD</p>
-            <span className="text-sm text-gray-500">Alta calidad</span>
-          </div>
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 mt-4">
+          {[
+            { icon: 'public/Icons/televisor.png', title: '+150 canales', sub: 'Variedad para todos' },
+            { icon: 'public/Icons/deportes.png',  title: 'Deportes en vivo', sub: 'Eventos y ligas' },
+            { icon: 'public/Icons/series.png',    title: 'Películas y series', sub: 'Estrenos y clásicos' },
+            { icon: 'public/Icons/antena.png',    title: 'Señal FHD', sub: 'Alta calidad' },
+          ].map(({ icon, title, sub }) => (
+            <div
+              key={title}
+              className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center"
+            >
+              <img
+                src={icon}
+                alt={title}
+                className="w-12 h-12 sm:w-14 sm:h-14 object-contain mb-2"
+              />
+              <p className="font-semibold text-gray-800 text-sm sm:text-base">{title}</p>
+              <span className="text-xs sm:text-sm text-gray-500">{sub}</span>
+            </div>
+          ))}
         </div>
-        {/* Call to action */}
-        <div className="text-center ">
-          <p className="py-6 text-gray-700 mb-4 text-sm md:text-base">
-              El servicio de televisión es prestado por:{" "}
-            <a
 
+        {/* Call to action */}
+        <div className="text-center pb-4">
+          <p className="py-4 sm:py-6 text-gray-700 mb-3 text-sm sm:text-base">
+            El servicio de televisión es prestado por:{' '}
+            <a
               href="https://webmastercolombia.net"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-bold hover:underline"
+              className="font-semibold hover:underline"
             >
               Web Master Colombia
             </a>
           </p>
-
           <a
             href="https://wa.me/573160542489"
             target="_blank"
-            className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-xl transition"
+            rel="noopener noreferrer"
+            className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-xl transition text-sm sm:text-base"
           >
             Activar TV Digital
           </a>
         </div>
-        {/* Carrusel */}
-        
       </div>
-      <div>
-        <Banner />
-      </div>
+
+      {/* ══════════════════════════════
+          BANNER FINAL
+      ══════════════════════════════ */}
+      <Banner />
+
     </div>
   );
 };
