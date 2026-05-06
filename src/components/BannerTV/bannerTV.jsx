@@ -22,7 +22,7 @@ const Banner = () => {
 
           <div className="flex items-center gap-2">
             <img src={logo} alt="logo" className="banner-logo" />
-            <img src="/src/assets/LOGO TEAS COLOR.svg" alt="TEAS" className="w-36" />
+            <img src="/src/assets/TEAS LOGO BLANCO.svg" alt="TEAS" className="w-36" />
           </div>
         </div>
 

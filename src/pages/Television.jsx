@@ -76,7 +76,7 @@ const Television = () => {
             <br />
             <span
               style={{
-                background: 'linear-gradient(90deg, #00ae9d, #2dd4bf)',
+                background: 'linear-gradient(90deg, #49ecdc, #06f4d4)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -103,7 +103,7 @@ const Television = () => {
             <div className="h-px w-8 sm:w-14" style={{ background: 'rgba(0,174,157,0.3)' }} />
             <span
               style={{
-                color: 'rgba(255,255,255,0.35)',
+                color: 'rgba(255, 255, 255, 0.99)',
                 fontSize: 'clamp(0.55rem, 1.2vw, 0.65rem)',
                 fontWeight: 600,
                 letterSpacing: '0.12em',
