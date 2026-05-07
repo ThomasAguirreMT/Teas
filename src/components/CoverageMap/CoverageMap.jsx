@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import {
   MapContainer,
@@ -36,21 +36,39 @@ L.Icon.Default.mergeOptions({
 // ===============================
 
 const zonaCobertura = [
-  [4.511045808692817, -74.12132824302223],
-  [4.507232388621018, -74.1140025099249],
-  [4.5062610425747, -74.1055941561728],
-  [4.5055529739844475, -74.104767007556],
-  [4.502674901204394, -74.10561506040226],
-  [4.501530209023427, -74.1060813354675],
-  [4.49760881037267, -74.10784961587028],
-  [4.496205736001593, -74.10781352851512],
-  [4.494400378442682, -74.10821335010077],
-  [4.491846050300075, -74.11048685347579],
-  [4.492187827036921, -74.11045076603922],
-  [4.482106296661768, -74.10930820942593],
-  [4.484980319043626, -74.12017197990293],
-  [4.4875828207307435, -74.1202123956912],
-  [4.504039339002618, -74.12502729650754],
+  [4.510976024472387, -74.1213524955283],
+  [4.5078216349477405, -74.11447549795749],
+  [4.506409786835539, -74.11239581225523],
+  [4.506346189962755, -74.10787919412604],
+  [4.506397067424288, -74.10539122656814],
+  [4.505417675664449, -74.10451086881689],
+  [4.505099691043145, -74.10445983358493],
+  [4.50286107537453, -74.10530191491222],
+  [4.498956200786706, -74.10734332420087],
+  [4.497696969646864, -74.10787919413792],
+  [4.495789039564806, -74.10773884725285],
+  [4.494517083405224, -74.10795574699054],
+  [4.4937793477919445, -74.10888713998715],
+  [4.492176678271101, -74.11035440290591],
+  [4.490790239046095, -74.11022681482639],
+  [4.488716935133748, -74.10855541094439],
+  [4.487250024183428, -74.10715174836056],
+  [4.485316271686788, -74.1075036001257],
+  [4.480586591749428, -74.11292567800852],
+  [4.4798234024370736, -74.1148394992069],
+  [4.480433953950682, -74.12126993843346],
+  [4.4855714201803885, -74.12169550952864],
+  [4.487900880845998, -74.12051202608431],
+  [4.490929702927746, -74.11915471869774],
+  [4.491336146900333, -74.12123611286107],
+  [4.495011699197982, -74.12048011033757],
+  [4.498249564431969, -74.11925314015565],
+  [4.498447433518767, -74.11820660675583],
+  [4.500606001710583, -74.1176652963769],
+  [4.504005733689549, -74.12500907385655],
+  [4.506002394312618, -74.12044402299522],
+  [4.510895088920524, -74.12129207593131],
+
 ];
 
 // ===============================
@@ -76,6 +94,7 @@ function FitBounds({ zona }) {
 
 const CoverageMap = () => {
   const [hovered, setHovered] = useState(false);
+  const markerRef = useRef(null);
 
   return (
     <div className="relative w-full h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
@@ -107,7 +126,7 @@ const CoverageMap = () => {
         doubleClickZoom={true}
         dragging={true}
         touchZoom={true}
-        className="w-full h-full z-0"
+        className="w-full h-full"
       >
         {/* Zoom personalizado */}
         <ZoomControl position="bottomright" />
@@ -145,20 +164,35 @@ const CoverageMap = () => {
         </Polygon>
 
         {/* MARCADOR */}
-        <Marker position={[4.49298498213014, -74.1149991737917]}>
-          <Popup>
-            <div className="min-w-[220px]">
-              <h2 className="font-bold text-lg mb-2">
-                Cobertura Disponible
+        <Marker
+          ref={markerRef}
+          position={[4.49298498213014, -74.1149991737917]}
+          eventHandlers={{
+            click: () => markerRef.current?.openPopup(),
+          }}
+        >
+          <Popup minWidth={220} maxWidth={300}>
+            <div>
+              <h2 style={{ fontWeight: "700", fontSize: "1rem", marginBottom: "6px" }}>
+                En este punto esta nuestra oficina
               </h2>
 
-              <p className="text-sm text-slate-600">
-                Contamos con internet de alta velocidad
-                en esta zona de Usme.
-              </p>
-
-              <button className="mt-4 w-full bg-[#00ae9d] text-white py-2 rounded-xl font-semibold hover:bg-[#009688] transition-all">
-                Solicitar instalación
+              <button
+                onClick={() => window.open("https://maps.app.goo.gl/BLfDasxV8ohXAf6p6", "_blank")}
+                style={{
+                  width: "100%",
+                  backgroundColor: "#00ae9d",
+                  color: "white",
+                  padding: "8px 0",
+                  borderRadius: "10px",
+                  fontWeight: "600",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+                onMouseOver={(e) => (e.target.style.backgroundColor = "#009688")}
+                onMouseOut={(e) => (e.target.style.backgroundColor = "#00ae9d")}
+              >
+                Ir allá
               </button>
             </div>
           </Popup>

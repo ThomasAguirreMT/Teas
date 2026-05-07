@@ -76,16 +76,6 @@ export default function Stats() {
     { value: "99.9%", label: "Uptime",         icon: "🛡️", desc: "Garantía de servicio" },
   ];
 
-  const categories = [
-    { label: "Deportes",        emoji: "⚽" },
-    { label: "Películas",       emoji: "🎬" },
-    { label: "Series",          emoji: "🎭" },
-    { label: "Noticias",        emoji: "📰" },
-    { label: "Infantil",        emoji: "🧸" },
-    { label: "Documentales",    emoji: "🌍" },
-    { label: "Música",          emoji: "🎵" },
-    { label: "Entretenimiento", emoji: "🎉" },
-  ];
 
   return (
     <section
@@ -150,13 +140,6 @@ export default function Stats() {
           </p>
         </div>
 
-        {/* ── Carrusel de canales ── */}
-        <div className="mb-8 sm:mb-12 md:mb-14">
-          <p className="text-center text-xs sm:text-sm font-bold uppercase tracking-widest mb-6 sm:mb-8 text-black">
-            Canales disponibles
-          </p>
-          <ChannelsCarousel />
-        </div>
 
         {/* ── Categorías ── */}
         <div
@@ -167,21 +150,6 @@ export default function Stats() {
             boxShadow:  "0 4px 24px rgba(45,66,88,0.06)",
           }}
         >
-          <p className="text-center text-xs font-bold uppercase tracking-widest mb-3"
-            style={{ color: "#94a3b8" }}>
-            Categorías disponibles
-          </p>
-          <h3
-            className="text-center font-display font-extrabold mb-8"
-            style={{
-              fontSize:      "clamp(1.2rem, 3vw, 1.8rem)",
-              color:         "#1a2d42",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Contenido para toda la familia
-          </h3>
-
           {/* ── Carrusel de categorías ── */}
           <div
             className="relative overflow-hidden"

@@ -50,10 +50,10 @@ const CarouselTv = () => {
                         {categories.map((cat, i) => (
                             
                             <div
-
-                                key={cat.label}
-                                className={`mb-12 carousel-tv-card${i === active ? ' active' : ''}`}
-                                onClick={() => setActive(i)}
+                            
+                            key={cat.label}
+                            className={`carousel-tv-card${i === active ? ' active' : ''}`}
+                            onClick={() => setActive(i)}
                             >
                             <span className="carousel-tv-label">{cat.label}</span>
                             <img src={cat.src} alt={cat.label} className="carousel-tv-img" />    
