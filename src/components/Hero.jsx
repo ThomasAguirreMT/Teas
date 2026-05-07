@@ -256,7 +256,7 @@ export default function HeroCarousel() {
               <div className="grid grid-cols-2 gap-3">
                 {[
                   { val: "<2ms",   label: "Ping",        gradStart: "#22c55e", gradEnd: "#84cc16" },
-                  { val: "1 Gbps", label: "Velocidad",   gradStart: "#a855f7", gradEnd: "#3b82f6" },
+                  { val: "920 Mbps", label: "Velocidad",   gradStart: "#a855f7", gradEnd: "#3b82f6" },
                   { val: "0%",     label: "Packet loss", gradStart: "#06b6d4", gradEnd: "#3b82f6" },
                   { val: "99.9%",  label: "Uptime",      gradStart: "#f59e0b", gradEnd: "#ef4444" },
                 ].map(s => (
