@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { coverage } from "../data/content";
+import CoverageMap from "./CoverageMap/CoverageMap";
 
 const dots = [
   { top: "18%", left: "28%" }, { top: "38%", left: "58%" }, { top: "62%", left: "22%" },
@@ -39,14 +40,7 @@ export default function Coverage() {
         <div className="relative h-80 rounded-3xl overflow-hidden border bg-white grid-bg glow-teal"
           style={{ borderColor: "#e2e8f0", boxShadow: "0 8px 30px rgba(0,174,157,0.1)" }}>
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse"
-                style={{ background: "rgba(0,174,157,0.1)", border: "2px solid rgba(0,174,157,0.2)" }}>
-                <span className="text-2xl" style={{ color: "#00ae9d" }}>◎</span>
-              </div>
-              <p className="text-sm font-semibold" style={{ color: "#2d4258" }}>Cobertura nacional</p>
-              <p className="text-xs mt-1" style={{ color: "#94a3b8" }}>120+ municipios cubiertos</p>
-            </div>
+            <CoverageMap />
           </div>
           {dots.map((p, i) => (
             <div key={i} className="absolute w-2.5 h-2.5 rounded-full"
@@ -64,6 +58,7 @@ export default function Coverage() {
             style={{ border: "1px solid rgba(0,174,157,0.05)" }} />
         </div>
       </div>
+      
     </section>
   );
 }
