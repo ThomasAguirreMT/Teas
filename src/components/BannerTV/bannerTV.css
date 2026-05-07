@@ -102,44 +102,71 @@
 
 
 /* =========================
-   MOBILE SOLO GUMBALL
+   TABLET
+========================= */
+@media (min-width: 601px) and (max-width: 900px) {
+  .banner {
+    height: 220px;
+  }
+
+  .banner-text {
+    right: 100px;
+  }
+
+  .banner-text h1 {
+    font-size: 26px;
+  }
+
+  .banner-logo {
+    right: auto;
+    position: relative;
+    height: 110px;
+  }
+
+  .img-left {
+    max-height: 280px;
+    left: -20px;
+  }
+
+  .img-right {
+    height: 170px;
+    top: -60px;
+    right: 0;
+  }
+}
+
+/* =========================
+   MOBILE
 ========================= */
 @media (max-width: 600px) {
+  .banner {
+    height: auto;
+    padding: 24px 16px;
+  }
 
-  /* ocultar imagen izquierda */
   .img-left {
     display: none;
   }
 
-  /* centrar y ajustar Gumball */
   .img-right {
-
     display: none;
-    /* 
-    right: -1px;
-    top: -60px;
-    height: 140px;
-    z-index: 2;
-    */
   }
 
-  /* ajustar texto para que no choque */
   .banner-text {
     position: relative;
     right: auto;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0;
   }
 
   .banner-text h1 {
     font-size: 22px;
   }
 
-  /* logo opcional ajuste */
   .banner-logo {
     right: auto;
     position: relative;
-    height: 100px;
-    margin-bottom: 10px;
+    height: 90px;
+    margin-bottom: 6px;
   }
 }

@@ -1,0 +1,111 @@
+.carousel-tv-wrapper {
+  width: 100%;
+  padding: 1rem 0 1.5rem;
+}
+
+.carousel-tv-track {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 0.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.carousel-tv-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Tarjeta inactiva ── */
+.carousel-tv-card {
+  flex: 0 0 110px;
+  position: relative;
+  border-radius: 16px;
+  cursor: pointer;
+  opacity: 0.5;
+  transform: scale(0.87);
+  transition: transform 0.45s ease, opacity 0.45s ease, box-shadow 0.45s ease;
+}
+
+/* ── Tarjeta activa ── */
+.carousel-tv-card.active {
+  opacity: 1;
+  transform: scale(1.13);
+  z-index: 10;
+}
+
+.carousel-tv-img {
+  width: 110px;
+  height: 158px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.45s ease;
+}
+
+.carousel-tv-card.active .carousel-tv-img {
+  box-shadow: 0 16px 40px rgba(0, 174, 157, 0.5);
+}
+
+.carousel-tv-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.2rem 0.4rem 0.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, transparent 100%);
+  border-radius: 0 0 16px 16px;
+  text-align: center;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* ── Dots ── */
+.carousel-tv-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1.25rem;
+}
+
+.carousel-tv-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 174, 157, 0.25);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, width 0.3s ease, border-radius 0.3s ease;
+  padding: 0;
+}
+
+.carousel-tv-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #00ae9d;
+}
+
+/* ── Responsive ── */
+@media (min-width: 480px) {
+  .carousel-tv-card  { flex: 0 0 130px; }
+  .carousel-tv-img   { width: 130px; height: 186px; }
+  .carousel-tv-track { padding: 1.5rem 1rem; }
+}
+
+@media (min-width: 640px) {
+  .carousel-tv-card  { flex: 0 0 150px; }
+  .carousel-tv-img   { width: 150px; height: 210px; }
+  .carousel-tv-track { padding: 2rem 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .carousel-tv-card  { flex: 0 0 175px; }
+  .carousel-tv-img   { width: 175px; height: 245px; }
+  .carousel-tv-track { padding: 2rem 2.5rem; }
+}

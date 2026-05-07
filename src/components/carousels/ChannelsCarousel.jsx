@@ -56,13 +56,13 @@ export default function ChannelsCarousel() {
     >
       <div
         ref={trackRef}
-        className="flex items-center gap-6 will-change-transform"
+        className="flex items-center gap-3 sm:gap-5 md:gap-6 will-change-transform"
         style={{ width: "max-content" }}
       >
         {ITEMS.map((channel, i) => (
           <div
             key={i}
-            className="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 bg-white rounded-2xl flex items-center justify-center p-4 transition-all duration-300 hover:scale-110"
+            className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 bg-white rounded-2xl flex items-center justify-center p-2 sm:p-3 md:p-4 transition-all duration-300 hover:scale-110"
             style={{
               boxShadow: "0 2px 12px rgba(45,66,88,0.08)",
               border:    "1px solid #e2e8f0",

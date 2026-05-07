@@ -48,7 +48,7 @@ export default function FloatingButtons() {
 
           {/* VENTAS */}
           <a
-            href="https://wa.me/573176683567?text=Hola%20quiero%20información%20sobre%20los%20planes"
+            href="https://wa.me/573160542489?text=Hola%20quiero%20información%20sobre%20los%20planes"
             target="_blank"
             rel="noopener noreferrer"
             className={`contact-option ${
@@ -57,14 +57,14 @@ export default function FloatingButtons() {
             onClick={() => handleClick("ventas")}
           >
             <span>Línea de ventas</span>
-            <strong>317 6683567</strong>
+            <strong>316 0542489</strong>
           </a>
 
           <h4>¿Requieres soporte técnico?</h4>
 
           {/* SOPORTE */}
           <a
-            href="https://wa.me/573176683567?text=Hola%20necesito%20soporte%20técnico"
+            href="https://wa.me/573160542489?text=Hola%20necesito%20soporte%20técnico"
             target="_blank"
             rel="noopener noreferrer"
             className={`contact-option ${
@@ -73,7 +73,7 @@ export default function FloatingButtons() {
             onClick={() => handleClick("soporte")}
           >
             <span>Soporte técnico</span>
-            <strong>317 6683567</strong>
+            <strong>316 0542489</strong>
           </a>
         </div>
       )}

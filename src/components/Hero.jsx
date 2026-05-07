@@ -1,30 +1,24 @@
 import { useState, useEffect } from "react";
 import MagicRings from "./MagicRings";
 import Threads from "./Threads/Threads";
-
 const slides = [
   {
     badge: "Plan GAMER",
     theme: "gamer",
-    title: <>Plan Gamer.<br /><span className="gamer-gradient">Sin límites.</span></>,
+    title: <>Plan Gamer<br /><span className="gamer-gradient">Sin límites.</span></>,
     desc: "Conexión optimizada para gaming online con baja latencia, mayor estabilidad y prioridad en tráfico para que juegues sin lag ni interrupciones.",
     cta: { label: "Conocer más →", href: "#gamer" },
     checks: ["Baja latencia", "Ping estable", "Prioridad en tráfico gamer"],
     metrics: [],
   },
   {
-    badge: "Nuevo: Hogares conectados",
+    badge: "Conectando los hogares de Usme",
     theme: "default",
     title: <>Tu hogar siempre<br /><span className="text-gradient">conectado.</span></>,
-    desc: "Disfruta streaming en 4K, gaming sin lag y videollamadas cristalinas en todos tus dispositivos al mismo tiempo.",
+    desc: <>Disfruta <span style={{ color: "#00ae9d", fontWeight: 700 }}>streaming en 4K</span>, gaming sin lag y videollamadas cristalinas en todos tus dispositivos al mismo tiempo.</>,
     cta: { label: "Ver plan hogar →", href: "#hogar" },
-    checks: ["WiFi 6 incluido", "Sin límite de datos", "Instalación express"],
-    metrics: [
-      { icon: "📺", val: "4K",     label: "Streaming"    },
-      { icon: "🎮", val: "<5 ms",  label: "Gaming lag"   },
-      { icon: "📱", val: "+20",    label: "Dispositivos" },
-      { icon: "🛜", val: "WiFi 6", label: "Incluido"     },
-    ],
+    checks: ["Baja latencia", "Sin límite de datos", "Instalación express"],
+    
   },
 ];
 
@@ -98,7 +92,7 @@ export default function HeroCarousel() {
   const isGamer = slide.theme === "gamer";
 
   useEffect(() => {
-    const id = setInterval(() => setCurrent(c => (c + 1) % slides.length), 5000);
+    const id = setInterval(() => setCurrent(c => (c + 1) % slides.length), 15000);
     return () => clearInterval(id);
   }, []);
 
@@ -181,7 +175,7 @@ export default function HeroCarousel() {
         </>
       ) : (
         <div className="absolute inset-0 overflow-hidden" style={{ background: "#000" }}>
-          <Threads amplitude={1} distance={0} enableMouseInteraction />
+          <Threads amplitude={1.5} distance={0}  />
         </div>
       )}
 
@@ -324,9 +318,17 @@ export default function HeroCarousel() {
             >
               {slide.title}
             </h1>
-
-            <p className="leading-relaxed mb-8 max-w-lg"
-              style={{ color: tk.descColor, fontSize: "clamp(0.9rem, 2vw, 1.1rem)" }}>
+            <p
+              className="leading-relaxed mb-8 max-w-lg mx-auto px-5 py-3 rounded-xl"
+              style={{
+                color: tk.descColor,
+                fontSize: "clamp(0.9rem, 2vw, 1.1rem)",
+                lineHeight: 1.7,
+                backdropFilter: "blur(6px)",
+                WebkitBackdropFilter: "blur(10px)",
+                border: "1px solid rgba(255, 255, 255, 0.39)",
+              }}
+            >
               {slide.desc}
             </p>
 
@@ -343,26 +345,6 @@ export default function HeroCarousel() {
                 </div>
               ))}
             </div>
-
-            {/* Métricas */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full pt-6 border-t" style={{ borderColor: tk.dividerColor }}>
-              {slide.metrics.map(m => (
-                <div
-                  key={m.label}
-                  className="flex flex-col items-center gap-1 rounded-2xl p-4 border"
-                  style={{
-                    background:  tk.cardBg,
-                    borderColor: tk.cardBorder,
-                    boxShadow:   "0 2px 12px rgba(0,0,0,0.3)",
-                  }}
-                >
-                  <div className="text-2xl">{m.icon}</div>
-                  <div className="font-bold text-base" style={{ color: tk.cardValColor }}>{m.val}</div>
-                  <div className="text-[11px]" style={{ color: tk.cardLblColor }}>{m.label}</div>
-                </div>
-              ))}
-            </div>
-
           </div>
 
         )}
@@ -401,9 +383,9 @@ export default function HeroCarousel() {
             className="md:hidden w-9 h-9 rounded-full flex items-center justify-center transition-all"
             style={{ background: tk.navBg, border: `1px solid ${tk.navBorder}`, color: tk.navColor }}
           >›</button>
-
         </div>
       </div>
+      
     </section>
   );
 }

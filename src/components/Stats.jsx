@@ -1,6 +1,7 @@
  import ChannelsCarousel from "./carousels/ChannelsCarousel";
 
 import { useEffect, useRef } from "react";
+import CarouselTv from "./CarouselTv/CarouselTv";
 
  function CategoriesCarousel({ categories }) {
   const trackRef  = useRef(null);
@@ -88,7 +89,7 @@ export default function Stats() {
 
   return (
     <section
-      className="relative overflow-hidden py-20 md:py-28"
+      className="relative overflow-hidden py-10 sm:py-16 md:py-28"
       style={{ background: "linear-gradient(160deg, #edfaf8 0%, #f5f7fa 50%, #eef2f8 100%)" }}
     >
       {/* Halos de fondo */}
@@ -97,10 +98,10 @@ export default function Stats() {
       <div className="absolute pointer-events-none rounded-full"
         style={{ width: 400, height: 400, background: "rgba(45,66,88,0.06)", filter: "blur(80px)", bottom: -80, left: -60 }} />
 
-      <div className="relative max-w-6xl mx-auto px-6">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* ── Encabezado ── */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-8 sm:mb-12 md:mb-14">
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-6"
             style={{
@@ -150,8 +151,8 @@ export default function Stats() {
         </div>
 
         {/* ── Carrusel de canales ── */}
-        <div className="mb-14">
-          <p className="text-center text-s font-bold uppercase tracking-widest mb-8 text-black">
+        <div className="mb-8 sm:mb-12 md:mb-14">
+          <p className="text-center text-xs sm:text-sm font-bold uppercase tracking-widest mb-6 sm:mb-8 text-black">
             Canales disponibles
           </p>
           <ChannelsCarousel />
@@ -159,7 +160,7 @@ export default function Stats() {
 
         {/* ── Categorías ── */}
         <div
-          className="rounded-2xl p-8 md:p-12"
+          className="rounded-2xl p-4 sm:p-8 md:p-12"
           style={{
             background: "#ffffff",
             border:     "1px solid #e2e8f0",
@@ -186,7 +187,7 @@ export default function Stats() {
             className="relative overflow-hidden"
             style={{ maskImage: "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)" }}
           >
-            <CategoriesCarousel categories={categories} />
+            <CarouselTv />
           </div>
         </div>
 

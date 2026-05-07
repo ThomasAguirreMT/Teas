@@ -135,7 +135,7 @@ const Television = () => {
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
             Disfruta lo mejor del{' '}
-            <span className="text-indigo-600">deporte, películas y series</span>
+            <span style={{ color: '#00ae9d' }} >deporte, películas y series</span>
           </h2>
           <p className="text-sm sm:text-base text-gray-600 mt-4 leading-relaxed">
             Accede a una amplia variedad de canales en alta calidad, con contenido para toda la familia.
@@ -148,27 +148,16 @@ const Television = () => {
           <ChannelsCarousel />
         </div>
 
-        {/* Beneficios */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 mt-4">
-          {[
-            { icon: 'public/Icons/televisor.png', title: '+150 canales', sub: 'Variedad para todos' },
-            { icon: 'public/Icons/deportes.png',  title: 'Deportes en vivo', sub: 'Eventos y ligas' },
-            { icon: 'public/Icons/series.png',    title: 'Películas y series', sub: 'Estrenos y clásicos' },
-            { icon: 'public/Icons/antena.png',    title: 'Señal FHD', sub: 'Alta calidad' },
-          ].map(({ icon, title, sub }) => (
-            <div
-              key={title}
-              className="bg-white shadow-sm rounded-2xl p-4 flex flex-col items-center text-center"
-            >
-              <img
-                src={icon}
-                alt={title}
-                className="w-12 h-12 sm:w-14 sm:h-14 object-contain mb-2"
-              />
-              <p className="font-semibold text-gray-800 text-sm sm:text-base">{title}</p>
-              <span className="text-xs sm:text-sm text-gray-500">{sub}</span>
-            </div>
-          ))}
+<div className="w-full overflow-hidden rounded-2xl my-6 sm:my-10">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-auto block pointer-events-none"
+          >
+            <source src="/channels/bannetv.webm" />
+          </video>
         </div>
 
         {/* Call to action */}
@@ -199,7 +188,6 @@ const Television = () => {
           BANNER FINAL
       ══════════════════════════════ */}
       <Banner />
-
     </div>
   );
 };
