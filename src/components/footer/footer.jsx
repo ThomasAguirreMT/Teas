@@ -52,8 +52,8 @@ export default function Footer() {
                             <a href="tel:+573176683567">+57 317 6683567</a>
                         </li>
                         <li>
-                            <a href="mailto:info@telecomunicacionesavanzadasdelsur.com">
-                                info@telecomunicacionesavanzadasdelsur.com
+                            <a href="mailto:info@teas.com.co">
+                                info@teas.com.co
                             </a>
                         </li>
                         <li><Link to="/pqr">Radica aqui tu PQR</Link></li>

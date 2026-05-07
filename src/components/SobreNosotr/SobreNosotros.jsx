@@ -18,13 +18,12 @@ const About = () => {
                 <div className="about-content">
 
 
-
                     <h1>
-                        Conectamos comunidades
+                        Conectamos comunidades <br />
+                        con tecnología de <br/>
 
                         <span className="typing-title">
-                            con tecnología de última generación</span>
-
+                            última generación</span>
                     </h1>
 
                     <p>
@@ -44,8 +43,8 @@ const About = () => {
                 {/* FLOATING CARDS */}
 
                 <div className="floating-card card-1">
-                    <h2>+10K</h2>
-                    <span>Usuarios conectados</span>
+                    <h2>Calidad</h2>
+                    <span>Mejores equipos del mercado </span>
                 </div>
 
                 <div className="floating-card card-2">
