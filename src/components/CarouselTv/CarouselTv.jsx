@@ -46,14 +46,17 @@ const CarouselTv = () => {
             <section className="w-full py-4 sm:py-6 px-0">
                 <div className="max-w-7xl mx-auto">
                     <div className="carousel-tv-track " ref={trackRef}>
+                        
                         {categories.map((cat, i) => (
+                            
                             <div
+
                                 key={cat.label}
                                 className={`mb-12 carousel-tv-card${i === active ? ' active' : ''}`}
                                 onClick={() => setActive(i)}
                             >
-                                <img src={cat.src} alt={cat.label} className="carousel-tv-img" />
-                                <span className="carousel-tv-label">{cat.label}</span>
+                            <span className="carousel-tv-label">{cat.label}</span>
+                            <img src={cat.src} alt={cat.label} className="carousel-tv-img" />    
                             </div>
                         ))}
                     </div>

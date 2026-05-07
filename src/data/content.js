@@ -83,12 +83,12 @@ export const stats = [
 ];
 
 export const features = [
-  { icon: "⚡", title: "Fibra óptica pura",   desc: "Red 100% propia sin cobre. Velocidades simétricas garantizadas en todo momento, sin degradación en horas pico." },
-  { icon: "🛡️", title: "Sin throttling",      desc: "No limitamos velocidad en horas pico ni en streaming. Lo que contratas, lo tienes todo el día." },
-  { icon: "🔧", title: "Soporte real 24/7",   desc: "Técnicos certificados que responden en menos de 30 minutos. Sin bots ni filas interminables." },
-  { icon: "📶", title: "WiFi 6 incluido",     desc: "Router de última generación incluido en planes Hogar, Pro y Ultra, sin costo adicional." },
-  { icon: "📋", title: "Sin permanencia",     desc: "Contratos mes a mes en todos los planes. Cancela cuando quieras sin penalizaciones." },
-  { icon: "💡", title: "Instalación express", desc: "Técnico en tu domicilio en máximo 72 horas hábiles. Instalación profesional sin costo." },
+  { icon: "Zap",           title: "Fibra óptica pura",        desc: "Red 100% propia sin cobre. Velocidades simétricas garantizadas en todo momento, sin degradación en horas pico." },
+  { icon: "ShieldCheck",   title: "Sin throttling",           desc: "No limitamos velocidad en horas pico ni en streaming. Lo que contratas, lo tienes todo el día." },
+  { icon: "Headset",       title: "Soporte real 24/7",        desc: "Técnicos certificados que responden en menos de 30 minutos. Sin bots ni filas interminables." },
+  { icon: "Wifi",          title: "WiFi 6 incluido",          desc: "Router de última generación incluido en planes Gamer." },
+  { icon: "FileText",      title: "Cláusula de permanencia",  desc: "Contrato único de 6 meses" },
+  { icon: "Truck",         title: "Instalación express",      desc: "Técnico en tu domicilio en máximo 72 horas hábiles. Instalación profesional sin costo." },
 ];
 
 export const faqs = [
@@ -101,12 +101,20 @@ export const faqs = [
 ];
 
 export const coverage = [
-  "Bogotá y área metropolitana",
-  "Medellín y Valle de Aburrá",
-  "Cali y municipios del Valle",
-  "Barranquilla y Costa Atlántica",
-  "Bucaramanga y Santanderes",
-  "Pereira y Eje Cafetero",
+  "ANTONIO JOSE DE SUCRE I II Y III SECTOR",
+  "LORENZO ALCANTUZ I Y II SECTOR",
+  "USMINIA",
+  "BRAZUELOS",
+  "EL TUNO",
+  "VILLA ANITA",
+  "VILLA ALEMANIA",
+  "MONTEBLANCO",
+  "TENERIFE",
+  "VALLES DE CAFAM",
+  "SAN LUIS",
+  "VILLA ISRAEL",
+  "EL MORTIÑO",
+  "EL PINO",  
 ];
 
 export const contact = {
