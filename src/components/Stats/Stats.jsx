@@ -1,7 +1,8 @@
- import ChannelsCarousel from "./carousels/ChannelsCarousel";
+ import ChannelsCarousel from "../carousels/ChannelsCarousel";
 
 import { useEffect, useRef } from "react";
-import CarouselTv from "./CarouselTv/CarouselTv";
+import CarouselTv from "../CarouselTv/CarouselTv";
+import "./Stats.css";
 
  function CategoriesCarousel({ categories }) {
   const trackRef  = useRef(null);
@@ -79,61 +80,33 @@ export default function Stats() {
 
   return (
     <section
-      className="relative overflow-hidden py-10 sm:py-16 md:py-28"
-      style={{ background: "linear-gradient(160deg, #edfaf8 0%, #f5f7fa 50%, #eef2f8 100%)" }}
+      className="stats-section relative overflow-hidden py-10 sm:py-16 md:py-28"
     >
       {/* Halos de fondo */}
-      <div className="absolute pointer-events-none rounded-full"
-        style={{ width: 500, height: 500, background: "rgba(0,174,157,0.08)", filter: "blur(100px)", top: -100, right: -100 }} />
-      <div className="absolute pointer-events-none rounded-full"
-        style={{ width: 400, height: 400, background: "rgba(45,66,88,0.06)", filter: "blur(80px)", bottom: -80, left: -60 }} />
+      <div className="stats-halo-1 absolute pointer-events-none rounded-full" />
+      <div className="stats-halo-2 absolute pointer-events-none rounded-full" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* ── Encabezado ── */}
         <div className="text-center mb-8 sm:mb-12 md:mb-14">
           <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-6"
-            style={{
-              background:    "rgba(0,174,157,0.08)",
-              borderColor:   "rgba(0,174,157,0.25)",
-              color:         "#00937f",
-              fontSize:      "0.7rem",
-              fontWeight:    800,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-            }}
+            className="stats-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-6"
           >
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse"
-              style={{ background: "#00ae9d" }} />
+            <span className="stats-badge-dot w-1.5 h-1.5 rounded-full animate-pulse" />
             Entretenimiento sin límites
           </div>
 
           <h2
-            className="font-display font-extrabold leading-tight mb-5"
-            style={{
-              fontSize:      "clamp(1.8rem, 5vw, 3.5rem)",
-              color:         "#1a2d42",
-              letterSpacing: "-0.02em",
-            }}
+            className="stats-title font-display font-extrabold leading-tight mb-5"
           >
             Más de 150 canales de{" "}
-            <span style={{
-              background:           "linear-gradient(90deg, #00ae9d, #2dd4bf)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor:  "transparent",
-            }}>
+            <span className="stats-title-highlight">
               contenido exclusivo
             </span>
           </h2>
 
-          <p style={{
-            color:     "#64748b",
-            fontSize:  "clamp(0.95rem, 2vw, 1.05rem)",
-            maxWidth:  "560px",
-            margin:    "0 auto",
-            lineHeight: 1.7,
-          }}>
+          <p className="stats-description">
             Disfruta de una amplia variedad de canales de alta resolución,
             disponibles en todos tus dispositivos, las 24 horas del día,
             los 7 días de la semana.
@@ -143,17 +116,11 @@ export default function Stats() {
 
         {/* ── Categorías ── */}
         <div
-          className="rounded-2xl p-4 sm:p-8 md:p-12"
-          style={{
-            background: "#ffffff",
-            border:     "1px solid #e2e8f0",
-            boxShadow:  "0 4px 24px rgba(45,66,88,0.06)",
-          }}
+          className="stats-categories-container rounded-2xl p-4 sm:p-8 md:p-12"
         >
           {/* ── Carrusel de categorías ── */}
           <div
-            className="relative overflow-hidden"
-            style={{ maskImage: "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)" }}
+            className="stats-carousel-mask relative overflow-hidden"
           >
             <CarouselTv />
           </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import "./Plans.css";
 
 const plans = [
   {
@@ -58,56 +59,40 @@ function PlanCard({ plan, index }) {
   return (
     <div
       ref={cardRef}
-      className="relative w-full cursor-pointer"
+      className="plans-card-container relative w-full cursor-pointer"
       style={{
-        height:     "440px",
-        perspective: "1200px",
-        opacity:     visible ? 1 : 0,
-        transform:   visible ? "translateY(0px)" : "translateY(40px)",
-        transition:  "opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0px)" : "translateY(40px)",
+        transition: "opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)",
       }}
       onClick={() => setFlipped(f => !f)}
     >
       <div
-        style={{
-          position:       "relative",
-          width:          "100%",
-          height:         "100%",
-          transformStyle: "preserve-3d",
-          transition:     "transform 0.6s cubic-bezier(0.4,0.2,0.2,1)",
-          transform:      flipped ? "rotateY(180deg)" : "rotateY(0deg)",
-        }}
+        className="plans-card-flip"
+        style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
       >
 
         {/* ── Frente ── */}
         <div
-          className="absolute inset-0 rounded-3xl overflow-hidden flex flex-col"
+          className="plans-card-front"
           style={{
-            backfaceVisibility:       "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            background:               `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
-            padding:                  "6px",
-            boxShadow:                `0 8px 32px ${plan.color.from}40`,
+            '--plan-gradient': `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
+            '--plan-shadow': `0 8px 32px ${plan.color.from}40`,
           }}
         >
           <div
-            className="flex-1 rounded-2xl flex flex-col items-center justify-between p-6"
-            style={{ background: "#ffffff" }}
+            className="plans-card-inner flex-1 rounded-2xl flex flex-col items-center justify-between p-6"
           >
             {/* Speed box */}
-            <div
-              className="w-full rounded-2xl flex flex-col items-center justify-center py-6"
-              style={{ background: "#1a2d42" }}
-            >
+            <div className="plans-speed-box w-full rounded-2xl flex flex-col items-center justify-center py-6">
+            
               <span
-                className="font-display font-black leading-none"
-                style={{ fontSize: "clamp(3rem,8vw,4rem)", color: "#ffffff" }}
+                className="plans-speed-number font-display font-black leading-none"
               >
                 {plan.speed}
               </span>
               <span
-                className="font-semibold mt-1"
-                style={{ color: "#94a3b8", fontSize: "1.1rem" }}
+                className="plans-speed-unit font-semibold mt-1"
               >
                 Mbps
               </span>
@@ -116,29 +101,22 @@ function PlanCard({ plan, index }) {
             {/* Price */}
             <div className="flex flex-col items-center my-4">
               <div
-                className="px-8 py-3 rounded-full font-display font-black"
+                className="plans-price px-8 py-3 rounded-full font-display font-black"
                 style={{
-                  background: `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
-                  color:      "#ffffff",
-                  fontSize:   "clamp(1.6rem,4vw,2rem)",
-                  boxShadow:  `0 4px 20px ${plan.color.from}50`,
+                  '--plan-gradient': `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
+                  '--plan-price-shadow': `0 4px 20px ${plan.color.from}50`,
                 }}
               >
                 {plan.price}
               </div>
-              <span className="text-xs font-medium mt-2" style={{ color: "#94a3b8" }}>
+              <span className="plans-price-label text-xs font-medium mt-2">
                 mensuales
               </span>
             </div>
 
             {/* Button */}
             <button
-              className="w-full py-3 rounded-2xl font-bold text-sm transition-all"
-              style={{
-                background:    "#1a2d42",
-                color:         "#ffffff",
-                letterSpacing: "0.02em",
-              }}
+              className="plans-button-more w-full py-3 rounded-2xl font-bold text-sm transition-all"
               onClick={e => { e.stopPropagation(); setFlipped(true); }}
             >
               Ver más
@@ -148,25 +126,19 @@ function PlanCard({ plan, index }) {
 
         {/* ── Reverso ── */}
         <div
-          className="absolute inset-0 rounded-3xl overflow-hidden flex flex-col"
+          className="plans-card-back"
           style={{
-            backfaceVisibility:       "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            transform:                "rotateY(180deg)",
-            background:               `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
-            padding:                  "6px",
-            boxShadow:                `0 8px 32px ${plan.color.from}40`,
+            '--plan-gradient': `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
+            '--plan-shadow': `0 8px 32px ${plan.color.from}40`,
           }}
         >
           <div
-            className="flex-1 rounded-2xl flex flex-col justify-between p-6"
-            style={{ background: "#ffffff" }}
+            className="plans-card-inner flex-1 rounded-2xl flex flex-col justify-between p-6"
           >
             {/* Header */}
             <div>
               <h3
-                className="font-display font-extrabold mb-4"
-                style={{ fontSize: "1.3rem", color: "#1a2d42" }}
+                className="plans-back-header font-display font-extrabold mb-4"
               >
                 Plan {plan.speed} Mbps
               </h3>
@@ -174,13 +146,11 @@ function PlanCard({ plan, index }) {
               {/* Features */}
               <ul className="space-y-2 mb-6">
                 {plan.features.map((f, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm"
-                    style={{ color: "#475569" }}>
+                  <li key={i} className="plans-feature-item flex items-start gap-2 text-sm">
                     <span
-                      className="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold"
+                      className="plans-feature-check mt-0.5 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold"
                       style={{
-                        background: `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
-                        color:      "#ffffff",
+                        '--plan-gradient': `linear-gradient(135deg, ${plan.color.from}, ${plan.color.to})`,
                       }}
                     >
                       ✓
@@ -192,17 +162,12 @@ function PlanCard({ plan, index }) {
             </div>
 
             {/* Botones */}
-            <div className="flex flex-col gap-2">
+            <div className="plans-buttons-container">
               <a
                 href={`https://wa.me/${plan.whatsapp}?text=${msg}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 rounded-2xl font-bold text-sm text-center flex items-center justify-center gap-2"
-                style={{
-                  background: "linear-gradient(135deg, #22c55e, #16a34a)",
-                  color:      "#ffffff",
-                  boxShadow:  "0 4px 16px rgba(34,197,94,0.3)",
-                }}
+                className="plans-whatsapp-button w-full py-3 rounded-2xl font-bold text-sm text-center flex items-center justify-center gap-2"
                 onClick={e => e.stopPropagation()}
               >
                 <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
@@ -212,12 +177,7 @@ function PlanCard({ plan, index }) {
               </a>
 
               <button
-                className="w-full py-2.5 rounded-2xl font-semibold text-sm transition-all"
-                style={{
-                  background: "transparent",
-                  border:     "1.5px solid #e2e8f0",
-                  color:      "#64748b",
-                }}
+                className="plans-less-button w-full py-2.5 rounded-2xl font-semibold text-sm transition-all"
                 onClick={e => { e.stopPropagation(); setFlipped(false); }}
               >
                 Ver menos
@@ -235,50 +195,28 @@ export default function Plans() {
   return (
     <section
       id="planes"
-      className="relative overflow-hidden py-20 md:py-28"
-      style={{ background: "linear-gradient(160deg, #edfaf8 0%, #f5f7fa 50%, #eef2f8 100%)" }}
+      className="plans-section relative overflow-hidden py-20 md:py-28"
     >
       {/* Halos */}
-      <div className="absolute pointer-events-none rounded-full"
-        style={{ width: 500, height: 500, background: "rgba(0,174,157,0.07)", filter: "blur(100px)", top: -100, right: -100 }} />
-      <div className="absolute pointer-events-none rounded-full"
-        style={{ width: 400, height: 400, background: "rgba(45,66,88,0.06)", filter: "blur(80px)", bottom: -80, left: -60 }} />
+      <div className="plans-halo-1 absolute pointer-events-none rounded-full" />
+      <div className="plans-halo-2 absolute pointer-events-none rounded-full" />
 
       <div className="relative max-w-6xl mx-auto px-6">
 
         {/* Encabezado */}
         <div className="text-center mb-14">
           <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-6"
-            style={{
-              background:    "rgba(0,174,157,0.08)",
-              borderColor:   "rgba(0,174,157,0.25)",
-              color:         "#00937f",
-              fontSize:      "0.7rem",
-              fontWeight:    800,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-            }}
+            className="plans-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-6"
           >
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse"
-              style={{ background: "#00ae9d" }} />
+            <span className="plans-badge-dot w-1.5 h-1.5 rounded-full animate-pulse" />
             Planes disponibles
           </div>
 
           <h2
-            className="font-display font-extrabold leading-tight mb-5"
-            style={{
-              fontSize:      "clamp(1.8rem, 5vw, 3.5rem)",
-              color:         "#1a2d42",
-              letterSpacing: "-0.02em",
-            }}
+            className="plans-title font-display font-extrabold leading-tight mb-5"
           >
             Elige el plan{" "}
-            <span style={{
-              background:           "linear-gradient(90deg, #00ae9d, #2dd4bf)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor:  "transparent",
-            }}>
+            <span className="plans-title-highlight">
               perfecto para ti
             </span>
           </h2>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import MagicRings from "./MagicRings";
-import Threads from "./Threads/Threads";
+import MagicRings from "../MagicRings";
+import Threads from "../Threads/Threads";
+import "./Hero.css";
 const slides = [
   {
     badge: "Plan GAMER",
@@ -47,18 +48,9 @@ function PingMonitor() {
                   : "#ef4444";
 
   return (
-    <div
-      className="relative overflow-hidden rounded-md p-3.5"
-      style={{
-        background: "rgba(10,6,24,0.85)",
-        border:     "1px solid rgba(168,85,247,0.3)",
-        boxShadow:  "0 0 20px rgba(124,58,237,0.1)",
-      }}
-    >
-      <div className="absolute top-0 left-0 right-0 h-0.5"
-        style={{ background: "linear-gradient(90deg,#7c3aed,#06b6d4)" }} />
-      <div className="text-[10px] uppercase tracking-widest font-bold mb-2.5"
-        style={{ color: "#64748b" }}>
+    <div className="hero-ping-monitor relative overflow-hidden rounded-md p-3.5">
+      <div className="hero-ping-line absolute top-0 left-0 right-0 h-0.5" />
+      <div className="hero-ping-label text-[10px] uppercase tracking-widest font-bold mb-2.5">
         Ping Monitor — Live
       </div>
       <div className="flex items-end gap-0.5" style={{ height: 44 }}>
@@ -71,15 +63,15 @@ function PingMonitor() {
                    : v < 14 ? "#f59e0b"
                    : "#ef4444";
           return (
-            <div key={i} className="flex-1 rounded-t-sm transition-all duration-300"
+            <div key={i} className="hero-ping-bar flex-1 rounded-t-sm"
               style={{ height: h, background: bg }} />
           );
         })}
       </div>
       <div className="flex justify-between mt-1.5">
-        <span className="text-[10px]" style={{ color: "#64748b" }}>0ms</span>
-        <span className="text-xs font-black" style={{ color: pingColor }}>{current}ms</span>
-        <span className="text-[10px]" style={{ color: "#64748b" }}>10ms</span>
+        <span className="hero-ping-label text-[10px]">0ms</span>
+        <span className="hero-ping-current text-xs font-black">{current}ms</span>
+        <span className="hero-ping-label text-[10px]">10ms</span>
       </div>
     </div>
   );
@@ -135,8 +127,7 @@ export default function HeroCarousel() {
   return (
     <section
       id="inicio"
-      className="relative md:min-h-screen flex items-center grid-bg overflow-hidden"
-      style={{ background: tk.sectionBg, transition: "background 0.6s ease" }}
+      className={`hero-section relative md:min-h-screen flex items-center grid-bg overflow-hidden ${isGamer ? 'hero-section-gamer' : 'hero-section-home'}`}
     >
       {/* ── Fondo ── */}
       {isGamer ? (
@@ -167,14 +158,11 @@ export default function HeroCarousel() {
             />
           </div>
           <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: "linear-gradient(160deg, rgba(4,2,12,0.55) 0%, rgba(10,6,24,0.45) 50%, rgba(4,6,18,0.55) 100%)",
-            }}
+            className="hero-overlay-gamer absolute inset-0 pointer-events-none"
           />
         </>
       ) : (
-        <div className="absolute inset-0 overflow-hidden" style={{ background: "#000" }}>
+        <div className="hero-background-home absolute inset-0 overflow-hidden">
           <Threads amplitude={1.5} distance={0}  />
         </div>
       )}
@@ -182,13 +170,13 @@ export default function HeroCarousel() {
       {/* ── Botones laterales (solo desktop) ── */}
       <button
         onClick={() => goTo(current - 1)}
-        className="hidden md:flex absolute left-4 w-10 h-10 rounded-full items-center justify-center transition-all z-10"
-        style={{ top: "50%", transform: "translateY(-50%)", background: tk.navBg, border: `1px solid ${tk.navBorder}`, color: tk.navColor }}
+        className={`hero-nav-button hidden md:flex absolute left-4 w-10 h-10 rounded-full items-center justify-center z-10 ${isGamer ? 'hero-nav-button-gamer' : 'hero-nav-button-home'}`}
+        style={{ top: "50%", transform: "translateY(-50%)" }}
       >‹</button>
       <button
         onClick={() => goTo(current + 1)}
-        className="hidden md:flex absolute right-4 w-10 h-10 rounded-full items-center justify-center transition-all z-10"
-        style={{ top: "50%", transform: "translateY(-50%)", background: tk.navBg, border: `1px solid ${tk.navBorder}`, color: tk.navColor }}
+        className={`hero-nav-button hidden md:flex absolute right-4 w-10 h-10 rounded-full items-center justify-center z-10 ${isGamer ? 'hero-nav-button-gamer' : 'hero-nav-button-home'}`}
+        style={{ top: "50%", transform: "translateY(-50%)" }}
       >›</button>
 
       <div className="w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-16 pt-20 sm:pt-24 pb-10 sm:pb-12 relative z-10">
@@ -200,53 +188,35 @@ export default function HeroCarousel() {
 
             <div key={`text-${current}`} className="flex flex-col justify-center items-center md:items-start text-center md:text-left">
               <div
-                className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 border self-center md:self-start"
-                style={{
-                  background: tk.badgeBg, borderColor: tk.badgeBorder, color: tk.badgeColor,
-                  borderRadius: "4px", letterSpacing: "0.1em", textTransform: "uppercase",
-                  fontSize: "0.7rem", fontWeight: 800, boxShadow: "0 0 12px rgba(168,85,247,0.3)",
-                }}
+                className="hero-badge inline-flex items-center gap-2 px-4 py-1.5 mb-6 border self-center md:self-start hero-badge-gamer"
               >
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: tk.pulseColor }} />
+                <span className="hero-badge-dot w-1.5 h-1.5 rounded-full animate-pulse" />
                 {slide.badge}
               </div>
 
               <h1
-                className="font-display font-extrabold leading-[1.05] tracking-tight mb-5"
-                style={{
-                  fontSize: "clamp(1.9rem, 6vw, 4.5rem)", color: tk.titleColor,
-                  letterSpacing: "-0.03em", textTransform: "uppercase",
-                  textShadow: "0 0 40px rgba(168,85,247,0.4)",
-                }}
+                className="hero-title-gamer font-display font-extrabold leading-[1.05] tracking-tight mb-5"
               >
                 {slide.title}
               </h1>
 
-              <p className="leading-relaxed mb-8 max-w-md mx-auto md:mx-0"
-                style={{ color: tk.descColor, fontSize: "clamp(0.88rem, 2vw, 1.05rem)" }}>
+              <p className="hero-description-gamer leading-relaxed mb-8 max-w-md mx-auto md:mx-0">
                 {slide.desc}
               </p>
 
               <div className="flex flex-wrap gap-4 mb-8 justify-center md:justify-start">
                 <a
                   href={slide.cta.href}
-                  className="px-8 py-3.5 text-sm font-black text-white inline-block"
-                  style={{
-                    background: "linear-gradient(90deg, #7c3aed, #4f46e5)", borderRadius: "4px",
-                    letterSpacing: "0.08em", textTransform: "uppercase",
-                    clipPath: "polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))",
-                    boxShadow: "0 0 24px rgba(124,58,237,0.5)",
-                  }}
+                  className="hero-cta-gamer px-8 py-3.5 text-sm font-black text-white inline-block"
                 >
                   {slide.cta.label}
                 </a>
               </div>
 
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-6 border-t justify-center md:justify-start"
-                style={{ borderColor: tk.dividerColor }}>
+              <div className="hero-divider-gamer flex flex-wrap items-center gap-x-4 gap-y-2 pt-6 border-t justify-center md:justify-start">
                 {slide.checks.map(b => (
-                  <div key={b} className="flex items-center gap-2 text-xs font-medium" style={{ color: tk.descColor }}>
-                    <span style={{ color: tk.checkColor }}>■</span> {b}
+                  <div key={b} className="hero-check-item flex items-center gap-2 text-xs font-medium">
+                    <span className="hero-check-icon">■</span> {b}
                   </div>
                 ))}
               </div>
@@ -262,26 +232,18 @@ export default function HeroCarousel() {
                 ].map(s => (
                   <div
                     key={s.label}
-                    className="relative overflow-hidden rounded-md p-4"
-                    style={{
-                      background: "rgba(10,6,24,0.85)",
-                      border:     "1px solid rgba(168,85,247,0.4)",
-                      boxShadow:  "0 0 20px rgba(124,58,237,0.15), inset 0 1px 0 rgba(255,255,255,0.05)",
-                    }}
+                    className="hero-metric-card relative overflow-hidden rounded-md p-4"
                   >
-                    <div className="absolute top-0 left-0 right-0 h-0.5"
-                      style={{ background: "linear-gradient(90deg,#7c3aed,#3b82f6)" }} />
+                    <div className="hero-metric-line absolute top-0 left-0 right-0 h-0.5" />
                     <div
-                      className="text-2xl font-black leading-none mb-1"
+                      className="hero-metric-value text-2xl font-black leading-none mb-1"
                       style={{
-                        background: `linear-gradient(90deg, ${s.gradStart}, ${s.gradEnd})`,
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor:  "transparent",
+                        '--metric-gradient': `linear-gradient(90deg, ${s.gradStart}, ${s.gradEnd})`,
                       }}
                     >
                       {s.val}
                     </div>
-                    <div className="text-[10px] uppercase tracking-widest font-bold" style={{ color: "#94a3b8" }}>
+                    <div className="hero-metric-label text-[10px] uppercase tracking-widest font-bold">
                       {s.label}
                     </div>
                   </div>
@@ -298,36 +260,19 @@ export default function HeroCarousel() {
           <div key={`hogar-${current}`} className="flex flex-col items-center text-center max-w-2xl mx-auto">
 
             <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 border"
-              style={{
-                background: tk.badgeBg, borderColor: tk.badgeBorder, color: tk.badgeColor,
-                borderRadius: "9999px", letterSpacing: "0.1em", textTransform: "uppercase",
-                fontSize: "0.7rem", fontWeight: 800,
-              }}
+              className="hero-badge inline-flex items-center gap-2 px-4 py-1.5 mb-6 border hero-badge-home"
             >
-              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: tk.pulseColor }} />
+              <span className="hero-badge-dot w-1.5 h-1.5 rounded-full animate-pulse" />
               {slide.badge}
             </div>
 
             <h1
-              className="font-display font-extrabold leading-[1.05] tracking-tight mb-5"
-              style={{
-                fontSize: "clamp(2.2rem, 7vw, 5rem)", color: tk.titleColor,
-                letterSpacing: "-0.01em",
-              }}
+              className="hero-title-home font-display font-extrabold leading-[1.05] tracking-tight mb-5"
             >
               {slide.title}
             </h1>
             <p
-              className="leading-relaxed mb-8 max-w-lg mx-auto px-5 py-3 rounded-xl"
-              style={{
-                color: tk.descColor,
-                fontSize: "clamp(0.9rem, 2vw, 1.1rem)",
-                lineHeight: 1.7,
-                backdropFilter: "blur(6px)",
-                WebkitBackdropFilter: "blur(10px)",
-                border: "1px solid rgba(255, 255, 255, 0.39)",
-              }}
+              className="hero-description-home leading-relaxed mb-8 max-w-lg mx-auto px-5 py-3 rounded-xl"
             >
               {slide.desc}
             </p>
@@ -340,8 +285,8 @@ export default function HeroCarousel() {
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pb-8 justify-center">
               {slide.checks.map(b => (
-                <div key={b} className="flex items-center gap-2 text-xs font-medium" style={{ color: tk.descColor }}>
-                  <span style={{ color: tk.checkColor }}>✓</span> {b}
+                <div key={b} className="hero-check-item flex items-center gap-2 text-xs font-medium">
+                  <span className="hero-check-icon">✓</span> {b}
                 </div>
               ))}
             </div>
@@ -354,25 +299,17 @@ export default function HeroCarousel() {
 
           <button
             onClick={() => goTo(current - 1)}
-            className="md:hidden w-9 h-9 rounded-full flex items-center justify-center transition-all"
-            style={{ background: tk.navBg, border: `1px solid ${tk.navBorder}`, color: tk.navColor }}
+            className={`hero-nav-button md:hidden w-9 h-9 rounded-full flex items-center justify-center ${isGamer ? 'hero-nav-button-gamer' : 'hero-nav-button-home'}`}
           >‹</button>
 
-          <div className="flex items-center gap-2">
+          <div className="hero-dots-container">
             {slides.map((s, i) => {
-              const active      = i === current;
-              const dotActive   = s.theme === "gamer" ? "#7c3aed"               : "#00ae9d";
-              const dotInactive = s.theme === "gamer" ? "rgba(139,92,246,0.25)" : "rgba(0,174,157,0.25)";
+              const active = i === current;
               return (
                 <button
                   key={i}
                   onClick={() => goTo(i)}
-                  style={{
-                    width: active ? "24px" : "8px", height: "8px",
-                    borderRadius: active ? "4px" : "50%",
-                    background: active ? dotActive : dotInactive,
-                    border: "none", cursor: "pointer", transition: "all 0.2s", padding: 0,
-                  }}
+                  className={`hero-dot ${active ? 'hero-dot-active' : 'hero-dot-inactive'} ${isGamer ? (active ? 'hero-dot-gamer-active' : 'hero-dot-gamer-inactive') : (active ? 'hero-dot-home-active' : 'hero-dot-home-inactive')}`}
                 />
               );
             })}
@@ -380,8 +317,7 @@ export default function HeroCarousel() {
 
           <button
             onClick={() => goTo(current + 1)}
-            className="md:hidden w-9 h-9 rounded-full flex items-center justify-center transition-all"
-            style={{ background: tk.navBg, border: `1px solid ${tk.navBorder}`, color: tk.navColor }}
+            className={`hero-nav-button md:hidden w-9 h-9 rounded-full flex items-center justify-center ${isGamer ? 'hero-nav-button-gamer' : 'hero-nav-button-home'}`}
           >›</button>
         </div>
       </div>

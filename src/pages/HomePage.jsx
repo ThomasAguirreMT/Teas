@@ -1,6 +1,6 @@
-import Hero  from "../components/Hero";
-import Stats from "../components/Stats";
-import Plans from "../components/Plans";
+import Hero  from "../components/Hero/Hero";
+import Stats from "../components/Stats/Stats";
+import Plans from "../components/Plans/Plans";
 export default function HomePage() {
   return (
     <>

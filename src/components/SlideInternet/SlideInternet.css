@@ -1,0 +1,27 @@
+.slide-internet-container {
+  width: 100%;
+  height: clamp(380px, 60vh, 730px);
+  position: relative;
+  background-color: #0d1b2a;
+  overflow: hidden;
+}
+
+.slide-internet-content {
+  background: rgba(0, 174, 157, 0.08);
+  border-color: rgba(0, 174, 157, 0.35);
+  color: #ffffff;
+  font-size: clamp(0.58rem, 1.5vw, 0.7rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.slide-internet-dot {
+  background: #ffffff;
+}
+
+.slide-internet-title {
+  font-size: clamp(2rem, 6vw, 5.5rem);
+  letter-spacing: -0.03em;
+  text-shadow: 0 0 60px rgba(0, 174, 157, 0.4), 0 2px 24px rgba(0, 0, 0, 0.6);
+}
