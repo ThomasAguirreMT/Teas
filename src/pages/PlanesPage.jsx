@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import Plans from "../components/Plans";
+import Plans from "../components/Plans/Plans";
 
 export default function PlanesPage() {
   return (

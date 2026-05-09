@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import About from "../components/SobreNosotros/SobreNosotros";
+import About from "../components/SobreNosotr/SobreNosotros";
 
 export default function NosotrosPage() {
   return (
