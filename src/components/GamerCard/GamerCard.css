@@ -1,0 +1,477 @@
+/* ════════════════════════════════════════════════════════════
+   GAMER CARD - ESTILOS
+   ════════════════════════════════════════════════════════════ */
+
+/* Animaciones */
+@keyframes gamerScanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(500px);
+  }
+}
+
+@keyframes gamerPulseRing {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes gamerFlicker {
+  0%, 96%, 100% {
+    opacity: 1;
+  }
+  97% {
+    opacity: 0.7;
+  }
+  98% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes gamerFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Contenedor principal */
+.gamer-card-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gamer-card-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gamer-card-animation {
+  animation: gamerFloat 3.5s ease-in-out infinite;
+  animation-play-state: running;
+}
+
+.gamer-card-animation.paused {
+  animation-play-state: paused;
+}
+
+.gamer-card-wrapper {
+  height: 400px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.gamer-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.gamer-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Frente del card */
+.gamer-card-front {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background: #080c14;
+  border: 1px solid rgba(255, 45, 107, 0.35);
+  transition: box-shadow 0.3s ease;
+}
+
+.gamer-card-front.tilted {
+  box-shadow: 0 0 0 1px rgba(255, 45, 107, 0.1),
+              0 24px 64px rgba(255, 45, 107, 0.35),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.gamer-card-front:not(.tilted) {
+  box-shadow: 0 0 0 1px rgba(255, 45, 107, 0.1),
+              0 12px 40px rgba(255, 45, 107, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Efectos de fondo */
+.gamer-card-effects {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.gamer-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 45, 107, 0.55), transparent);
+  animation: gamerScanline 3.5s linear infinite;
+  top: 0;
+}
+
+.gamer-glow-tl {
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 45, 107, 0.12) 0%, transparent 70%);
+}
+
+.gamer-glow-br {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, transparent 70%);
+}
+
+.gamer-logo {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  opacity: 0.06;
+  width: 90px;
+  height: 90px;
+}
+
+.gamer-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 45, 107, 0.15), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gamer-shine.active {
+  opacity: 1;
+}
+
+/* Contenido */
+.gamer-card-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.gamer-card-header {
+  padding: 16px 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gamer-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gamer-pulse-ring {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.gamer-pulse-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 45, 107, 0.5);
+  animation: gamerPulseRing 2s ease-in-out infinite;
+}
+
+.gamer-pulse-inner {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: rgba(255, 45, 107, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gamer-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: #ff6b8a;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: gamerFlicker 5s infinite;
+}
+
+.gamer-elite-badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(255, 45, 107, 0.15);
+  border: 1px solid rgba(255, 45, 107, 0.3);
+  font-size: 9px;
+  font-weight: 800;
+  color: #ff2d6b;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.gamer-card-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.gamer-speed {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.gamer-speed-value {
+  font-size: clamp(2.5rem, 10vw, 3.2rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.gamer-speed-unit {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.38);
+  align-self: flex-end;
+  padding-bottom: 8px;
+}
+
+.gamer-divider {
+  height: 2px;
+  width: 60px;
+  margin: 8px auto;
+  background: linear-gradient(90deg, #ff2d6b, #ef4444);
+  border-radius: 2px;
+}
+
+.gamer-price {
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.gamer-subtitle {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.32);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+.gamer-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+  width: 100%;
+}
+
+.gamer-stat {
+  border-radius: 10px;
+  padding: 8px 10px 6px;
+  text-align: center;
+  border: 1px solid rgba(255, 45, 107, 0.18);
+  background: rgba(255, 45, 107, 0.08);
+}
+
+.gamer-stat-red {
+  border-color: rgba(239, 68, 68, 0.18);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.gamer-stat-value {
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.gamer-stat-value-red {
+  color: #f87171;
+}
+
+.gamer-stat-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.32);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.gamer-card-footer {
+  padding: 0 16px 16px;
+}
+
+/* Botones */
+.btn-gamer-view {
+  width: 100%;
+  padding: 11px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 45, 107, 0.18);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+
+.btn-gamer-view:hover {
+  background: rgba(255, 45, 107, 0.32);
+}
+
+/* Reverso del card */
+.gamer-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  background: #080c14;
+  border: 1px solid rgba(255, 45, 107, 0.35);
+  box-shadow: 0 12px 40px rgba(255, 45, 107, 0.2);
+}
+
+.gamer-card-back-top {
+  height: 4px;
+  background: linear-gradient(90deg, #ff2d6b, #ef4444);
+}
+
+.gamer-card-back-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px 16px 16px;
+}
+
+/* Features */
+.gamer-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gamer-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+.gamer-feature-check {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2d6b, #ef4444);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+/* Botones del reverso */
+.gamer-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.btn-gamer-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff2d6b, #ef4444);
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(255, 45, 107, 0.35);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-gamer-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 45, 107, 0.45);
+}
+
+.btn-gamer-back {
+  width: 100%;
+  padding: 9px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 45, 107, 0.25);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn-gamer-back:hover {
+  color: rgba(255, 255, 255, 0.7);
+}

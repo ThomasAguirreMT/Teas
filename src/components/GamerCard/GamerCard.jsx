@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import "./GamerCard.css";
 
 const plan = {
   id: 5,
@@ -242,22 +243,11 @@ export default function GamerCard() {
               </div>
 
               {/* ── REVERSO ── */}
-              <div
-                style={{
-                  position: "absolute", inset: 0, borderRadius: 20, overflow: "hidden",
-                  display: "flex", flexDirection: "column",
-                  backfaceVisibility: "hidden",
-                  WebkitBackfaceVisibility: "hidden",
-                  transform: "rotateY(180deg)",
-                  background: "#080c14",
-                  border: "1px solid rgba(255,45,107,0.35)",
-                  boxShadow: "0 12px 40px rgba(255,45,107,0.2)",
-                }}
-              >
+              <div className="gamer-card-back">
                 {/* Barra superior */}
-                <div style={{ height: 4, background: "linear-gradient(90deg, #ff2d6b, #ef4444)" }} />
+                <div className="gamer-card-back-top" />
 
-                <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "14px 16px 16px" }}>
+                <div className="gamer-card-back-content">
                   <div>
                     {/* Header reverso */}
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
@@ -279,15 +269,10 @@ export default function GamerCard() {
                     </div>
 
                     {/* Features */}
-                    <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 6 }}>
+                    <ul className="gamer-features">
                       {plan.features.map((f, i) => (
-                        <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 12, color: "rgba(255,255,255,0.7)", lineHeight: 1.4 }}>
-                          <span style={{
-                            flexShrink: 0, width: 15, height: 15, borderRadius: "50%",
-                            background: "linear-gradient(135deg, #ff2d6b, #ef4444)",
-                            color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
-                            fontSize: 8, fontWeight: 700, marginTop: 1,
-                          }}>✓</span>
+                        <li key={i} className="gamer-feature-item">
+                          <span className="gamer-feature-check">✓</span>
                           {f}
                         </li>
                       ))}
@@ -295,18 +280,12 @@ export default function GamerCard() {
                   </div>
 
                   {/* Botones */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: 7, marginTop: 12 }}>
+                  <div className="gamer-button-group">
                     <a
                       href={`https://wa.me/${plan.whatsapp}?text=${msg}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{
-                        display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
-                        padding: "11px", borderRadius: 12,
-                        background: "linear-gradient(135deg, #ff2d6b, #ef4444)",
-                        color: "#fff", fontWeight: 800, fontSize: 13,
-                        textDecoration: "none", boxShadow: "0 4px 20px rgba(255,45,107,0.35)",
-                      }}
+                      className="btn-gamer-whatsapp"
                       onClick={e => e.stopPropagation()}
                     >
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" style={{ flexShrink: 0 }}>
@@ -315,12 +294,8 @@ export default function GamerCard() {
                       ¡Contratar Plan Gamer!
                     </a>
                     <button
-                      style={{
-                        width: "100%", padding: "9px", borderRadius: 12,
-                        border: "1px solid rgba(255,45,107,0.25)", background: "transparent",
-                        color: "rgba(255,255,255,0.5)", fontWeight: 600, fontSize: 12, cursor: "pointer",
-                      }}
-                      onClick={e => { e.stopPropagation(); setFlipped(false); }}
+                      className="btn-gamer-back"
+                      onClick={(e) => { e.stopPropagation(); setFlipped(false); }}
                     >
                       ← Volver
                     </button>

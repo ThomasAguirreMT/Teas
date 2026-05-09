@@ -3,7 +3,7 @@ import { useEffect, lazy, Suspense } from "react";
 
 // Layout
 import Navbar from "./components/navbar/nav";
-import Footer from "./components/footer/footer";
+import Footer from "./components/footer/Footer";
 import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
 
 // UI

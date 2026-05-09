@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import MagicRings from "../MagicRings";
 import Threads from "../Threads/Threads";
 import "./Hero.css";
+
 const slides = [
   {
     badge: "Plan GAMER",
@@ -10,7 +11,6 @@ const slides = [
     desc: "Conexión optimizada para gaming online con baja latencia, mayor estabilidad y prioridad en tráfico para que juegues sin lag ni interrupciones.",
     cta: { label: "Conocer más →", href: "#gamer" },
     checks: ["Baja latencia", "Ping estable", "Prioridad en tráfico gamer"],
-    metrics: [],
   },
   {
     badge: "Conectando los hogares de Usme",
@@ -19,7 +19,6 @@ const slides = [
     desc: <>Disfruta <span style={{ color: "#00ae9d", fontWeight: 700 }}>streaming en 4K</span>, gaming sin lag y videollamadas cristalinas en todos tus dispositivos al mismo tiempo.</>,
     cta: { label: "Ver plan hogar →", href: "#hogar" },
     checks: ["Baja latencia", "Sin límite de datos", "Instalación express"],
-    
   },
 ];
 
@@ -41,11 +40,6 @@ function PingMonitor() {
     }, 600);
     return () => clearInterval(id);
   }, []);
-
-  const pingColor = current < 5  ? "#22c55e"
-                  : current < 10 ? "#84cc16"
-                  : current < 14 ? "#f59e0b"
-                  : "#ef4444";
 
   return (
     <div className="hero-ping-monitor relative overflow-hidden rounded-md p-3.5">
@@ -77,6 +71,101 @@ function PingMonitor() {
   );
 }
 
+function SlideGamer({ slide, current }) {
+  return (
+    <div className="flex flex-col md:grid md:grid-cols-2 md:gap-16 md:items-center">
+
+      <div key={`text-${current}`} className="flex flex-col justify-center items-center md:items-start text-center md:text-left">
+        <div className="hero-badge inline-flex items-center gap-2 px-4 py-1.5 mb-6 border self-center md:self-start hero-badge-gamer">
+          <span className="hero-badge-dot w-1.5 h-1.5 rounded-full animate-pulse" />
+          {slide.badge}
+        </div>
+
+        <h1 className="hero-title-gamer font-display font-extrabold leading-[1.05] tracking-tight mb-5">
+          {slide.title}
+        </h1>
+
+        <p className="hero-description-gamer leading-relaxed mb-8 max-w-md mx-auto md:mx-0">
+          {slide.desc}
+        </p>
+
+        <div className="flex flex-wrap gap-4 mb-8 justify-center md:justify-start">
+          <a href={slide.cta.href} className="hero-cta-gamer px-8 py-3.5 text-sm font-black text-white inline-block">
+            {slide.cta.label}
+          </a>
+        </div>
+
+        <div className="hero-divider-gamer flex flex-wrap items-center gap-x-4 gap-y-2 pt-6 border-t justify-center md:justify-start">
+          {slide.checks.map(b => (
+            <div key={b} className="hero-check-item flex items-center gap-2 text-xs font-medium">
+              <span className="hero-check-icon">■</span> {b}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div key={`gamer-${current}`} className="flex flex-col gap-3 mt-10 md:mt-0 max-w-sm mx-auto md:max-w-none">
+        <div className="grid grid-cols-2 gap-3">
+          {[
+            { val: "<2ms",     label: "Ping",        gradStart: "#22c55e", gradEnd: "#84cc16" },
+            { val: "920 Mbps", label: "Velocidad",   gradStart: "#a855f7", gradEnd: "#3b82f6" },
+            { val: "0%",       label: "Packet loss", gradStart: "#06b6d4", gradEnd: "#3b82f6" },
+            { val: "99.9%",    label: "Uptime",      gradStart: "#f59e0b", gradEnd: "#ef4444" },
+          ].map(s => (
+            <div key={s.label} className="hero-metric-card relative overflow-hidden rounded-md p-4">
+              <div className="hero-metric-line absolute top-0 left-0 right-0 h-0.5" />
+              <div
+                className="hero-metric-value text-2xl font-black leading-none mb-1"
+                style={{ '--metric-gradient': `linear-gradient(90deg, ${s.gradStart}, ${s.gradEnd})` }}
+              >
+                {s.val}
+              </div>
+              <div className="hero-metric-label text-[10px] uppercase tracking-widest font-bold">
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+        <PingMonitor />
+      </div>
+
+    </div>
+  );
+}
+
+function SlideHogar({ slide }) {
+  return (
+    <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
+      <div className="hero-badge inline-flex items-center gap-2 px-4 py-1.5 mb-6 border hero-badge-home">
+        <span className="hero-badge-dot w-1.5 h-1.5 rounded-full animate-pulse" />
+        {slide.badge}
+      </div>
+
+      <h1 className="hero-title-home font-display font-extrabold leading-[1.05] tracking-tight mb-5">
+        {slide.title}
+      </h1>
+
+      <p className="hero-description-home leading-relaxed mb-8 max-w-lg mx-auto px-5 py-3 rounded-xl">
+        {slide.desc}
+      </p>
+
+      <div className="flex flex-wrap gap-4 mb-8 justify-center">
+        <a href={slide.cta.href} className="btn-primary px-8 py-3.5 text-sm">
+          {slide.cta.label}
+        </a>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pb-8 justify-center">
+        {slide.checks.map(b => (
+          <div key={b} className="hero-check-item flex items-center gap-2 text-xs font-medium">
+            <span className="hero-check-icon">✓</span> {b}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
 
@@ -89,40 +178,6 @@ export default function HeroCarousel() {
   }, []);
 
   const goTo = n => setCurrent((n + slides.length) % slides.length);
-
-  const tk = isGamer
-    ? {
-        sectionBg:   "linear-gradient(160deg, #080612 0%, #120d24 45%, #0a0e1e 100%)",
-        badgeBg:     "rgba(168,85,247,0.2)",
-        badgeBorder: "rgba(168,85,247,0.7)",
-        badgeColor:  "#e9d5ff",
-        pulseColor:  "#a78bfa",
-        titleColor:  "#ffffff",
-        descColor:   "#cbd5e1",
-        checkColor:  "#a78bfa",
-        dividerColor:"rgba(139,92,246,0.25)",
-        navBg:       "rgba(255,255,255,0.05)",
-        navBorder:   "rgba(139,92,246,0.35)",
-        navColor:    "#a78bfa",
-      }
-    : {
-        sectionBg:   "#000000",
-        badgeBg:     "rgba(0,174,157,0.1)",
-        badgeBorder: "rgba(0,174,157,0.3)",
-        badgeColor:  "#2dd4bf",
-        pulseColor:  "#00ae9d",
-        titleColor:  "#f1f5f9",
-        descColor:   "#94a3b8",
-        checkColor:  "#00ae9d",
-        dividerColor:"rgba(255,255,255,0.08)",
-        cardBg:      "rgba(255,255,255,0.06)",
-        cardBorder:  "rgba(255,255,255,0.12)",
-        cardValColor:"#f1f5f9",
-        cardLblColor:"#64748b",
-        navBg:       "rgba(255,255,255,0.05)",
-        navBorder:   "rgba(255,255,255,0.12)",
-        navColor:    "#94a3b8",
-      };
 
   return (
     <section
@@ -157,13 +212,11 @@ export default function HeroCarousel() {
               clickBurst={false}
             />
           </div>
-          <div
-            className="hero-overlay-gamer absolute inset-0 pointer-events-none"
-          />
+          <div className="hero-overlay-gamer absolute inset-0 pointer-events-none" />
         </>
       ) : (
         <div className="hero-background-home absolute inset-0 overflow-hidden">
-          <Threads amplitude={1.5} distance={0}  />
+          <Threads amplitude={1.5} distance={0} />
         </div>
       )}
 
@@ -181,122 +234,13 @@ export default function HeroCarousel() {
 
       <div className="w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-16 pt-20 sm:pt-24 pb-10 sm:pb-12 relative z-10">
 
-        {isGamer ? (
-
-          /* ── SLIDE GAMER: dos columnas ── */
-          <div className="flex flex-col md:grid md:grid-cols-2 md:gap-16 md:items-center">
-
-            <div key={`text-${current}`} className="flex flex-col justify-center items-center md:items-start text-center md:text-left">
-              <div
-                className="hero-badge inline-flex items-center gap-2 px-4 py-1.5 mb-6 border self-center md:self-start hero-badge-gamer"
-              >
-                <span className="hero-badge-dot w-1.5 h-1.5 rounded-full animate-pulse" />
-                {slide.badge}
-              </div>
-
-              <h1
-                className="hero-title-gamer font-display font-extrabold leading-[1.05] tracking-tight mb-5"
-              >
-                {slide.title}
-              </h1>
-
-              <p className="hero-description-gamer leading-relaxed mb-8 max-w-md mx-auto md:mx-0">
-                {slide.desc}
-              </p>
-
-              <div className="flex flex-wrap gap-4 mb-8 justify-center md:justify-start">
-                <a
-                  href={slide.cta.href}
-                  className="hero-cta-gamer px-8 py-3.5 text-sm font-black text-white inline-block"
-                >
-                  {slide.cta.label}
-                </a>
-              </div>
-
-              <div className="hero-divider-gamer flex flex-wrap items-center gap-x-4 gap-y-2 pt-6 border-t justify-center md:justify-start">
-                {slide.checks.map(b => (
-                  <div key={b} className="hero-check-item flex items-center gap-2 text-xs font-medium">
-                    <span className="hero-check-icon">■</span> {b}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div key={`gamer-${current}`} className="flex flex-col gap-3 mt-10 md:mt-0 max-w-sm mx-auto md:max-w-none">
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { val: "<2ms",   label: "Ping",        gradStart: "#22c55e", gradEnd: "#84cc16" },
-                  { val: "920 Mbps", label: "Velocidad",   gradStart: "#a855f7", gradEnd: "#3b82f6" },
-                  { val: "0%",     label: "Packet loss", gradStart: "#06b6d4", gradEnd: "#3b82f6" },
-                  { val: "99.9%",  label: "Uptime",      gradStart: "#f59e0b", gradEnd: "#ef4444" },
-                ].map(s => (
-                  <div
-                    key={s.label}
-                    className="hero-metric-card relative overflow-hidden rounded-md p-4"
-                  >
-                    <div className="hero-metric-line absolute top-0 left-0 right-0 h-0.5" />
-                    <div
-                      className="hero-metric-value text-2xl font-black leading-none mb-1"
-                      style={{
-                        '--metric-gradient': `linear-gradient(90deg, ${s.gradStart}, ${s.gradEnd})`,
-                      }}
-                    >
-                      {s.val}
-                    </div>
-                    <div className="hero-metric-label text-[10px] uppercase tracking-widest font-bold">
-                      {s.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <PingMonitor />
-            </div>
-
-          </div>
-
-        ) : (
-
-          /* ── SLIDE HOGAR: columna centrada ── */
-          <div key={`hogar-${current}`} className="flex flex-col items-center text-center max-w-2xl mx-auto">
-
-            <div
-              className="hero-badge inline-flex items-center gap-2 px-4 py-1.5 mb-6 border hero-badge-home"
-            >
-              <span className="hero-badge-dot w-1.5 h-1.5 rounded-full animate-pulse" />
-              {slide.badge}
-            </div>
-
-            <h1
-              className="hero-title-home font-display font-extrabold leading-[1.05] tracking-tight mb-5"
-            >
-              {slide.title}
-            </h1>
-            <p
-              className="hero-description-home leading-relaxed mb-8 max-w-lg mx-auto px-5 py-3 rounded-xl"
-            >
-              {slide.desc}
-            </p>
-
-            <div className="flex flex-wrap gap-4 mb-8 justify-center">
-              <a href={slide.cta.href} className="btn-primary px-8 py-3.5 text-sm">
-                {slide.cta.label}
-              </a>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pb-8 justify-center">
-              {slide.checks.map(b => (
-                <div key={b} className="hero-check-item flex items-center gap-2 text-xs font-medium">
-                  <span className="hero-check-icon">✓</span> {b}
-                </div>
-              ))}
-            </div>
-          </div>
-
-        )}
+        {isGamer
+          ? <SlideGamer slide={slide} current={current} />
+          : <SlideHogar key={`hogar-${current}`} slide={slide} />
+        }
 
         {/* ── Controles inferiores ── */}
         <div className="flex items-center justify-center gap-4 mt-8 sm:mt-10">
-
           <button
             onClick={() => goTo(current - 1)}
             className={`hero-nav-button md:hidden w-9 h-9 rounded-full flex items-center justify-center ${isGamer ? 'hero-nav-button-gamer' : 'hero-nav-button-home'}`}
@@ -320,8 +264,8 @@ export default function HeroCarousel() {
             className={`hero-nav-button md:hidden w-9 h-9 rounded-full flex items-center justify-center ${isGamer ? 'hero-nav-button-gamer' : 'hero-nav-button-home'}`}
           >›</button>
         </div>
+
       </div>
-      
     </section>
   );
 }

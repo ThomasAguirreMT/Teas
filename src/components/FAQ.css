@@ -1,0 +1,120 @@
+/* ════════════════════════════════════════════════════════════
+   FAQ - ESTILOS
+   ════════════════════════════════════════════════════════════ */
+
+.faq-section {
+  background: #eef2f8;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.faq-container {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.faq-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  color: #00ae9d;
+}
+
+.faq-title {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #1a2d42;
+}
+
+.faq-description {
+  font-size: 1.125rem;
+  color: #64748b;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq-item {
+  border-radius: 0.875rem;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.faq-item.open {
+  border-color: #00ae9d;
+  box-shadow: 0 4px 20px rgba(0, 174, 157, 0.1);
+}
+
+.faq-item:not(.open) {
+  box-shadow: 0 2px 8px rgba(45, 66, 88, 0.04);
+}
+
+.faq-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.faq-button:hover {
+  background: rgba(0, 174, 157, 0.02);
+}
+
+.faq-question {
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding-right: 1rem;
+  color: #1a2d42;
+  flex: 1;
+}
+
+.faq-toggle {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  font-weight: 300;
+  color: #00ae9d;
+  transition: transform 0.3s ease;
+}
+
+.faq-toggle.open {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer.open {
+  max-height: 500px;
+}
+
+.faq-answer-text {
+  padding: 0 1.25rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #64748b;
+}
