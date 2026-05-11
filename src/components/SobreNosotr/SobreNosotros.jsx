@@ -5,58 +5,60 @@ const About = () => {
     return (
         <section className="about">
 
-            <div className="about-overlay"></div>
-
+            {/* BACKGROUND IMAGE */}
             <img
                 src={aboutImage}
-                alt="TEAS"
-                className="about-bg-image"
+                alt="Fibra óptica"
+                className="about-image"
             />
 
-            <div className="about-container">
+            {/* DARK LAYER */}
+            <div className="about-overlay"></div>
 
-                <div className="about-content">
+            {/* CONTENT */}
+            <div className="about-content">
 
 
-                    <h1>
-                        Conectamos comunidades <br />
-                        con tecnología de <br/>
+                <h1>
+                    Creamos conexiones
+                </h1>
 
-                        <span className="typing-title">
-                            última generación</span>
-                    </h1>
 
-                    <p>
-                        En TEAS llevamos internet y televisión por fibra óptica
-                        a miles de hogares, ofreciendo velocidad, estabilidad
-                        y una experiencia digital confiable.
-                    </p>
 
-                    <div className="about-actions">
-                        <button>
-                            Conocer más
-                        </button>
-                    </div>
+                <div className="typing-line">
+                    <span className="typing-text">
+                        rápidas, <br /> seguras y modernas
+                    </span>
+                </div>
+                <div className="about-buttons">
+
+                    <button className="primary-btn">
+                        Ver cobertura
+                    </button>
+
+                    <button className="secondary-btn">
+                        Planes disponibles
+                    </button>
 
                 </div>
 
-                {/* FLOATING CARDS */}
+            </div>
 
-                <div className="floating-card card-1">
-                    <h2>Calidad</h2>
-                    <span>Mejores equipos del mercado </span>
-                </div>
+            {/* FLOATING STATS */}
 
-                <div className="floating-card card-2">
-                    <h2>24/7</h2>
-                    <span>Soporte técnico</span>
-                </div>
+            <div className="stats-box stats-1">
+                <h2>+10K</h2>
+                <span>Usuarios conectados</span>
+            </div>
 
-                <div className="floating-card card-3">
-                    <h2>Fibra Óptica</h2>
-                    <span>Alta velocidad y estabilidad</span>
-                </div>
+            <div className="stats-box stats-2">
+                <h2>99%</h2>
+                <span>Estabilidad garantizada</span>
+            </div>
 
+            <div className="stats-box stats-3">
+                <h2>24/7</h2>
+                <span>Soporte técnico</span>
             </div>
 
         </section>
