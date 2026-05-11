@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./navbar.css";
+import logo from "../../assets/TEASLOGOBLANCO.svg";
 
 const navLinks = [
   { path: "/", label: "INICIO" },
   { path: "/cobertura", label: "COBERTURA" },
   { path: "/nosotros", label: "NOSOTROS" },
+  { path: "/pagos", label: "PAGOS" },
   { path: "/contacto", label: "CONTACTO" },
 ];
 
@@ -66,8 +68,8 @@ export default function Navbar() {
 
         {/* LOGO */}
         <Link to="/" className="logo" aria-label="Ir al inicio">
-          <img src="/src/assets/TEASLOGOBLANCO.svg" alt="TEAS" />
-        </Link>
+          <img src={logo} alt="TEAS" />
+        </Link>   
 
         {/* DESKTOP NAV */}
         <ul className="nav-links-desktop" role="list">

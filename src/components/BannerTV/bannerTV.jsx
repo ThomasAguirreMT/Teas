@@ -2,6 +2,7 @@ import "./bannerTV.css";
 import gumball from "../../assets/television/mike.webp";
 import escandalosos from "../../assets/mascota.png";
 import logo from "../../assets/television/logo.svg";
+import teasLogo from "../../assets/TEASLOGOBLANCO.svg";
 
 
 const Banner = () => {
@@ -22,7 +23,7 @@ const Banner = () => {
 
           <div className="flex items-center gap-2">
             <img src={logo} alt="logo" className="banner-logo" />
-            <img src="/src/assets/TEAS LOGO BLANCO.svg" alt="TEAS" className="w-36" />
+            <img src={teasLogo} alt="TEAS" className="w-36" />
           </div>
         </div>
 
