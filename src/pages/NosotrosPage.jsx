@@ -3,6 +3,7 @@ import About from "../components/SobreNosotr/SobreNosotros";
 import WhyChooseUs from "../components/WhiChoose/WhyChooseUs";
 import CoverageSection from "../components/CoverageSection/CoverageSection";
 import CTASection from "../components/CTASection/CTASection";
+import  EventSection from "../components/carruselN/EventSection";
 export default function NosotrosPage() {
   return (
     <>
@@ -20,6 +21,7 @@ export default function NosotrosPage() {
       <WhyChooseUs />
       <CoverageSection />
       <CTASection />
+      <EventSection />
 
     </>
   );

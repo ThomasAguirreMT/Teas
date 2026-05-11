@@ -13,9 +13,7 @@ const CoverageSection = () => {
         {/* LEFT */}
         <div className="coverage-content">
 
-          <span className="coverage-tag">
-            COBERTURA
-          </span>
+   
 
           <h2>
             Llegamos a más
