@@ -3,8 +3,8 @@ import "./Plans.css";
 
 const plans = [
   {
-    speed:    "350",
-    price:    "$85.000",
+    speed:    "200",
+    price:    "$65.000",
     features: [
       "Navegación fluida y redes sociales",
       "Streaming HD",
@@ -16,8 +16,8 @@ const plans = [
     color:    { from: "#f97316", to: "#f59e0b" },
   },
   {
-    speed:    "500",
-    price:    "$105.000",
+    speed:    "350",
+    price:    "$85.000",
     features: [
       "Streaming en FHD sin interrupciones",
       "Gaming online con baja latencia",
@@ -29,12 +29,12 @@ const plans = [
     color:    { from: "#00ae9d", to: "#2dd4bf" },
   },
   {
-    speed:    "700",
-    price:    "$125.000",
+    speed:    "500",
+    price:    "$105.000",
     features: [
-      "Fibra óptica simétrica 700 Mps",
+      "Fibra óptica simétrica 500 Mps",
       "Ping ultra bajo para gaming",
-      "Streaming 2K+ en todos los dispositivos",
+      "Streaming FHD en todos los dispositivos",
       "Ideal para trabajo desde casa",
     ],
     whatsapp: "573160542489",
