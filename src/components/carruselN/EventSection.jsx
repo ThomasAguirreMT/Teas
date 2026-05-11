@@ -1,14 +1,11 @@
 import "./EventSection.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useState } from "react";
 
-import {
-    Autoplay,
-    Pagination,
-} from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/pagination";
 
 import event1 from "../../assets/events/event1.jpeg";
 import event2 from "../../assets/events/event2.jpeg";
@@ -29,137 +26,191 @@ import event16 from "../../assets/events/event16.jpeg";
 const events = [
     {
         image: event1,
+        tag: "Comunidad",
         title: "Festival Comunitario TEAS",
         description:
-            "Conectando familias, cultura y tecnología en cada comunidad."
+            "Un espacio para reunir familias, compartir experiencias y fortalecer la conexión con nuestra comunidad."
     },
     {
         image: event2,
+        tag: "Conectividad",
         title: "Entrega de Internet Rural",
         description:
-            "Llevando conectividad de alta velocidad a nuevas zonas."
+            "Llevamos conectividad confiable a sectores que hoy necesitan más oportunidades digitales."
     },
     {
         image: event3,
+        tag: "Educación",
         title: "Actividades Educativas",
         description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
+            "Creamos experiencias tecnológicas para inspirar a niños y jóvenes a aprender y crecer."
     },
- 
     {
         image: event4,
-        title: "Actividades Educativas",
+        tag: "Integración",
+        title: "Integración Comunitaria",
         description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
+            "Compartimos jornadas llenas de cultura, entretenimiento y cercanía con nuestros usuarios."
     },
     {
         image: event5,
-        title: "Actividades Educativas",
+        tag: "Expansión",
+        title: "Cobertura en Nuevas Zonas",
         description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
+            "Seguimos expandiendo nuestra red para conectar más hogares y comunidades."
     },
     {
         image: event6,
-        title: "Actividades Educativas",
+        tag: "Comunidad",
+        title: "Experiencias para la Comunidad",
         description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
+            "Cada actividad fortalece los lazos entre tecnología, familias y desarrollo social."
     },
     {
         image: event7,
-        title: "Actividades Educativas",
+        tag: "Social",
+        title: "Compromiso Social",
         description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
+            "Trabajamos junto a la comunidad impulsando espacios de apoyo y participación."
     },
-        {
-        image: event8,
-        title: "Actividades Educativas",
-        description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
-    },
-       {
-        image: event9,
-        title: "Actividades Educativas",
-        description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
-    },
-           {
-        image: event11,
-        title: "Actividades Educativas",
-        description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
-    },
-       {
-        image: event12,
-        title: "Actividades Educativas",
-        description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
-    },
-       {
-        image: event13,
-        title: "Actividades Educativas",
-        description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
-    },
-           {
-        image: event14,
-        title: "Actividades Educativas",
-        description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
-    },
-           {
-        image: event15,
-        title: "Actividades Educativas",
-        description:
-            "Impulsando oportunidades digitales para niños y jóvenes."
-    },
-
-
-
-
     {
         image: event8,
+        tag: "Tecnología",
+        title: "Tecnología para Todos",
+        description:
+            "Acercamos herramientas digitales que generan nuevas oportunidades para las personas."
+    },
+    {
+        image: event9,
+        tag: "Impacto",
+        title: "Conectividad con Impacto",
+        description:
+            "Nuestra misión es transformar vidas a través de internet estable y accesible."
+    },
+    {
+        image: event11,
+        tag: "Jornadas",
+        title: "Jornadas Comunitarias",
+        description:
+            "Creamos encuentros donde la tecnología y la comunidad avanzan de la mano."
+    },
+    {
+        image: event12,
+        tag: "Crecimiento",
+        title: "Creciendo con la Comunidad",
+        description:
+            "Acompañamos el desarrollo local llevando conexión y experiencias positivas."
+    },
+    {
+        image: event13,
+        tag: "Innovación",
+        title: "Innovación Cercana",
+        description:
+            "Impulsamos iniciativas que acercan la innovación a cada rincón de la región."
+    },
+    {
+        image: event14,
+        tag: "Familias",
+        title: "Familias Conectadas",
+        description:
+            "Creemos en una conectividad que une personas, oportunidades y sueños."
+    },
+    {
+        image: event15,
+        tag: "Regional",
+        title: "Presencia Regional",
+        description:
+            "Seguimos construyendo una red sólida para conectar más comunidades cada día."
+    },
+    {
+        image: event16,
+        tag: "Empresas",
         title: "Eventos Empresariales",
         description:
-            "Fortaleciendo alianzas y crecimiento regional."
+            "Generamos alianzas estratégicas que impulsan el crecimiento tecnológico regional."
     }
-
 ];
 
 const EventSection = () => {
+
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const total = events.length;
+
+    const pad = (n) => String(n).padStart(2, "0");
+
     return (
         <section className="events">
 
             <div className="events-header">
 
-                <h1 className="events-title">
+                <div>
+                    
 
-                    Internet que transforma comunidades
-                </h1>
+                    <h2 className="events-title">
+                        Conectando comunidades
+                        <br />
+                        con tecnología real
+                    </h2>
+                </div>
+
+                <div className="events-counter">
+
+                    <strong>{pad(activeIndex + 1)}</strong>
+
+                    <span>/</span>
+
+                    {pad(total)}
+
+                </div>
+
+            </div>
+
+            <div className="events-progress">
+
+                <div
+                    className="events-progress-fill"
+                    style={{
+                        width: `${((activeIndex + 1) / total) * 100}%`
+                    }}
+                />
 
             </div>
 
             <Swiper
-                modules={[Autoplay, Pagination]}
-                spaceBetween={30}
-                slidesPerView={1.2}
-                centeredSlides={true}
+                modules={[Autoplay]}
+
+                onSlideChange={(swiper) => {
+                    setActiveIndex(swiper.realIndex);
+                }}
+
                 loop={true}
-                speed={1200}
+
                 autoplay={{
-                    delay: 3500,
+                    delay: 3200,
                     disableOnInteraction: false,
                 }}
-                pagination={{
-                    clickable: true,
-                }}
+
+                speed={1200}
+
+                grabCursor={true}
+
+                centeredSlides={false}
+
+                slidesPerView={1.05}
+
+                spaceBetween={24}
+
                 breakpoints={{
                     768: {
-                        slidesPerView: 1.4,
+                        slidesPerView: 1.15,
                     },
+
                     1200: {
-                        slidesPerView: 1.8,
+                        slidesPerView: 1.28,
                     },
                 }}
+
                 className="events-swiper"
             >
 
@@ -169,15 +220,27 @@ const EventSection = () => {
 
                         <div className="event-card">
 
-                            <img src={event.image} alt={event.title} />
+                            <img
+                                src={event.image}
+                                alt={event.title}
+                                className="event-image"
+                            />
 
                             <div className="event-overlay">
 
                                 <div className="event-content">
 
-                                    <h3>{event.title}</h3>
+                                    <span className="event-tag">
+                                        {event.tag}
+                                    </span>
 
-                                    <p>{event.description}</p>
+                                    <h3 className="event-title-card">
+                                        {event.title}
+                                    </h3>
+
+                                    <p className="event-description">
+                                        {event.description}
+                                    </p>
 
                                 </div>
 
