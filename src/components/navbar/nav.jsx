@@ -66,7 +66,7 @@ export default function Navbar() {
 
         {/* LOGO */}
         <Link to="/" className="logo" aria-label="Ir al inicio">
-          <img src="/src/assets/TEAS LOGO BLANCO.svg" alt="TEAS" />
+          <img src="/src/assets/TEASLOGOBLANCO.svg" alt="TEAS" />
         </Link>
 
         {/* DESKTOP NAV */}
