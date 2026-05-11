@@ -1,5 +1,5 @@
 import "./Footer.css";
-import logo from "../../assets/TEAS LOGO BLANCO.svg";
+import logo from "../../assets/TEASLOGOBLANCO.svg";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
