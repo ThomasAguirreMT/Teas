@@ -35,8 +35,8 @@ const CoverageSection = () => {
             </div>
 
             <div className="coverage-item">
-              <h3>+10K</h3>
-              <span>Clientes activos</span>
+              <h3>100%</h3>
+              <span>Santisfaccion</span>
             </div>
 
             <div className="coverage-item">

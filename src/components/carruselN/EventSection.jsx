@@ -26,63 +26,54 @@ import event16 from "../../assets/events/event16.jpeg";
 const events = [
     {
         image: event1,
-        tag: "Comunidad",
         title: "Festival Comunitario TEAS",
         description:
             "Un espacio para reunir familias, compartir experiencias y fortalecer la conexión con nuestra comunidad."
     },
     {
         image: event2,
-        tag: "Conectividad",
         title: "Entrega de Internet Rural",
         description:
             "Llevamos conectividad confiable a sectores que hoy necesitan más oportunidades digitales."
     },
     {
         image: event3,
-        tag: "Educación",
         title: "Actividades Educativas",
         description:
             "Creamos experiencias tecnológicas para inspirar a niños y jóvenes a aprender y crecer."
     },
     {
         image: event4,
-        tag: "Integración",
         title: "Integración Comunitaria",
         description:
             "Compartimos jornadas llenas de cultura, entretenimiento y cercanía con nuestros usuarios."
     },
     {
         image: event5,
-        tag: "Expansión",
         title: "Cobertura en Nuevas Zonas",
         description:
             "Seguimos expandiendo nuestra red para conectar más hogares y comunidades."
     },
     {
         image: event6,
-        tag: "Comunidad",
         title: "Experiencias para la Comunidad",
         description:
             "Cada actividad fortalece los lazos entre tecnología, familias y desarrollo social."
     },
     {
         image: event7,
-        tag: "Social",
         title: "Compromiso Social",
         description:
             "Trabajamos junto a la comunidad impulsando espacios de apoyo y participación."
     },
     {
         image: event8,
-        tag: "Tecnología",
         title: "Tecnología para Todos",
         description:
             "Acercamos herramientas digitales que generan nuevas oportunidades para las personas."
     },
     {
         image: event9,
-        tag: "Impacto",
         title: "Conectividad con Impacto",
         description:
             "Nuestra misión es transformar vidas a través de internet estable y accesible."
@@ -96,35 +87,30 @@ const events = [
     },
     {
         image: event12,
-        tag: "Crecimiento",
         title: "Creciendo con la Comunidad",
         description:
             "Acompañamos el desarrollo local llevando conexión y experiencias positivas."
     },
     {
         image: event13,
-        tag: "Innovación",
         title: "Innovación Cercana",
         description:
             "Impulsamos iniciativas que acercan la innovación a cada rincón de la región."
     },
     {
         image: event14,
-        tag: "Familias",
         title: "Familias Conectadas",
         description:
             "Creemos en una conectividad que une personas, oportunidades y sueños."
     },
     {
         image: event15,
-        tag: "Regional",
         title: "Presencia Regional",
         description:
             "Seguimos construyendo una red sólida para conectar más comunidades cada día."
     },
     {
         image: event16,
-        tag: "Empresas",
         title: "Eventos Empresariales",
         description:
             "Generamos alianzas estratégicas que impulsan el crecimiento tecnológico regional."
