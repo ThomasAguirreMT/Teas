@@ -20,7 +20,6 @@ export default function NosotrosPage() {
       <About />
       <WhyChooseUs />
       <CoverageSection />
-      <CTASection />
       <EventSection />
 
     </>

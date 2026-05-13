@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import "./SobreNosotros.css";
 import aboutImage from "../../assets/sobrenosotros/n1.jpg";
+
 
 const About = () => {
     return (
@@ -32,12 +34,17 @@ const About = () => {
                 </div>
                 <div className="about-buttons">
 
-                    <button className="primary-btn">
+                    <button
+                        className="primary-btn"
+                        onClick={() => window.location.href = "/cobertura"}
+                    >
                         Ver cobertura
                     </button>
-
-                    <button className="secondary-btn">
-                        Planes disponibles
+                     <button
+                        className="primary-btn"
+                        onClick={() => window.location.href = "/Internet"}
+                    >
+                        Ver planes
                     </button>
 
                 </div>
@@ -47,8 +54,8 @@ const About = () => {
             {/* FLOATING STATS */}
 
             <div className="stats-box stats-1">
-                <h2>+10K</h2>
-                <span>Usuarios conectados</span>
+                <h2>100%</h2>
+                <span>Santisfaccion</span>
             </div>
 
             <div className="stats-box stats-2">

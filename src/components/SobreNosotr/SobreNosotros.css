@@ -342,94 +342,331 @@
 
 }
 
-/* ========================= */
-/* RESPONSIVE */
-/* ========================= */
+/* ========================================= */
+/* ULTRA RESPONSIVE PRO */
+/* ========================================= */
 
-@media (max-width: 1200px) {
+/* LAPTOP LARGE */
+
+@media (max-width: 1400px) {
+
+  .about {
+    padding: 110px 7%;
+  }
 
   .stats-1 {
     right: 5%;
   }
 
   .stats-2 {
-    right: 4%;
+    right: 3%;
   }
 
   .stats-3 {
-    right: 25%;
+    right: 22%;
   }
 
 }
 
-@media (max-width: 1100px) {
+/* LAPTOP */
+
+@media (max-width: 1200px) {
 
   .about {
-    padding: 120px 6%;
+    padding: 110px 6%;
   }
 
-  .stats-box {
-    position: relative;
-
-    top: auto;
-    right: auto;
-    bottom: auto;
-
-    margin-top: 25px;
-
-    width: 100%;
-
-    max-width: 340px;
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  .about {
-    padding: 100px 6%;
+  .about-content {
+    max-width: 620px;
   }
 
   .about-content h1 {
-    font-size: 3.2rem;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+  }
 
-    line-height: 1;
+  .typing-text {
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+  }
 
-    letter-spacing: -2px;
+  .stats-box {
+    min-width: 210px;
+
+    padding: 24px;
+  }
+
+  .stats-box h2 {
+    font-size: 2.2rem;
+  }
+
+}
+
+/* TABLET LANDSCAPE */
+
+@media (max-width: 992px) {
+
+  .about {
+
+    min-height: auto;
+
+    padding:
+      130px 6% 70px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+  }
+
+  .about-overlay {
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5,13,24,0.92) 0%,
+        rgba(5,13,24,0.82) 45%,
+        rgba(5,13,24,0.88) 100%
+      );
+  }
+
+  .about-content {
+
+    max-width: 100%;
+  }
+
+  .about-content h1 {
+
+    font-size: 4rem;
+
+    line-height: 0.95;
+
+    margin-bottom: 14px;
   }
 
   .typing-line {
-    height: auto;
+
+    min-height: auto;
+
+    margin-bottom: 25px;
   }
 
   .typing-text {
 
-    font-size: 2rem;
-
-    width: auto;
+    font-size: 2.4rem;
 
     white-space: normal;
+
+    width: auto;
 
     border-right: none;
 
     animation: none;
   }
 
-  .about-content p {
-    font-size: 1rem;
+  .about-buttons {
+
+    width: 100%;
+
+    margin-top: 35px;
+  }
+
+  .primary-btn {
+
+    min-width: 220px;
+  }
+
+  /* FLOATING STATS -> STACK */
+
+  .stats-box {
+
+    position: relative;
+
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    margin-top: 22px;
+
+    animation: none;
+  }
+
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+
+  .about {
+
+    padding:
+      110px 5% 60px;
+  }
+
+  .about-content h1 {
+
+    font-size: 3rem;
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+  }
+
+  .typing-text {
+
+    font-size: 2rem;
+
+    line-height: 1.3;
   }
 
   .about-buttons {
-    width: 100%;
+
+    flex-direction: column;
+
+    gap: 14px;
   }
 
   .primary-btn,
   .secondary-btn {
+
     width: 100%;
+
+    padding: 17px 20px;
+
+    border-radius: 16px;
+
+    font-size: 0.95rem;
   }
 
   .stats-box {
-    max-width: 100%;
+
+    padding: 24px;
+  }
+
+  .stats-box h2 {
+
+    font-size: 2rem;
+  }
+
+  .stats-box span {
+
+    font-size: 0.95rem;
   }
 
 }
+
+/* MOBILE */
+
+@media (max-width: 576px) {
+
+  .about {
+
+    padding:
+      95px 22px 55px;
+  }
+
+  .about-content h1 {
+
+    font-size: 2.5rem;
+
+    letter-spacing: -1px;
+  }
+
+  .typing-line {
+
+    margin-top: 5px;
+
+    margin-bottom: 20px;
+  }
+
+  .typing-text {
+
+    font-size: 1.6rem;
+  }
+
+  .stats-box {
+
+    border-radius: 20px;
+
+    padding: 20px;
+  }
+
+  .stats-box h2 {
+
+    font-size: 1.7rem;
+
+    margin-bottom: 8px;
+  }
+
+  .stats-box span {
+
+    line-height: 1.5;
+  }
+
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 420px) {
+
+  .about {
+
+    padding:
+      90px 18px 50px;
+  }
+
+  .about-content h1 {
+
+    font-size: 2.1rem;
+  }
+
+  .typing-text {
+
+    font-size: 1.35rem;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+
+    padding: 15px 16px;
+
+    font-size: 0.9rem;
+  }
+
+  .stats-box {
+
+    padding: 18px;
+  }
+
+  .stats-box h2 {
+
+    font-size: 1.5rem;
+  }
+
+  .stats-box span {
+
+    font-size: 0.85rem;
+  }
+
+}
+
+/* EXTRA SMALL */
+
+@media (max-width: 340px) {
+
+  .about-content h1 {
+
+    font-size: 1.8rem;
+  }
+
+  .typing-text {
+
+    font-size: 1.15rem;
+  }
+
+}
+
