@@ -1,6 +1,6 @@
 import "./CoverageSection.css";
 
-import event1 from "../../assets/sobrenosotros/n1.jpg";
+import event1 from "../../assets/sobrenosotros/baile.jpg";
 import event2 from "../../assets/sobrenosotros/n2.jpg";
 import event3 from "../../assets/sobrenosotros/n3.jpg";
 

@@ -20,6 +20,7 @@ const ContactoPage = lazy(() => import("./pages/ContactoPage"));
 const InternetPage = lazy(() => import("./pages/Internet"));
 const TelevisionPage = lazy(() => import("./pages/Television"));
 const PagosPage = lazy(() => import("./pages/PagosPage/PagosPage"));
+const Notieo = lazy(() => import("./pages/Notiteo"));
 
 /* =========================
    SCROLL TOP (FIX REAL)
@@ -59,6 +60,9 @@ export default function App() {
             <Route path="/cobertura" element={<CoberturaPage />} />
             <Route path="/nosotros" element={<NosotrosPage />} />
             <Route path="/contacto" element={<ContactoPage />} />
+            <Route path="/notiteo" element={<Notieo />} />
+
+            
             <Route path="/internet" element={<InternetPage />} />
             <Route path="/television" element={<TelevisionPage />} />
             <Route path="/pagos" element={<PagosPage />} />

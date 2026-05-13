@@ -7,7 +7,7 @@ const navLinks = [
   { path: "/", label: "INICIO" },
   { path: "/cobertura", label: "COBERTURA" },
   { path: "/nosotros", label: "NOSOTROS" },
-  { path: "/Notiteo", label: "NOTICIAS" },
+  { path: "/Notiteo", label: "NOTITEO" },
 
   { path: "/pagos", label: "PAGOS" },
   { path: "/contacto", label: "CONTACTO" },

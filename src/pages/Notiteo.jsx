@@ -1,12 +1,25 @@
-import React from 'react'
-import { Helmet } from 'react-helmet-async';
+import React from "react";
+import { Helmet } from "react-helmet-async";
 
-const Notieo = () => {
+import NoticiasSec from "../components/NoticiasSection/NoticiasSec";
+
+const Notiteo = () => {
   return (
     <>
+      <Helmet>
+        <title>
+          Noticias y Eventos
+        </title>
 
+        <meta
+          name="description"
+          content="Conoce nuestras noticias, eventos y novedades."
+        />
+      </Helmet>
+
+      <NoticiasSec />
     </>
-  )
-}
+  );
+};
 
-export default Notieo
+export default Notiteo;
