@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Coverage  from "../components/Coverage";
 import Features  from "../components/Features";
+import Oficina from "../components/Oficina/Oficina";
 
 export default function CoberturaPage() {
   return (
@@ -16,6 +17,7 @@ export default function CoberturaPage() {
         <meta name="twitter:image" content="https://teas.com.co/og-image.png" />
       </Helmet>
       <Coverage />
+      <Oficina />
       <Features />
     </>
   );

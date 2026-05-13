@@ -1,0 +1,323 @@
+/* ═══════════════════════════════════════════════════
+   MASCOTA BANNER
+   ═══════════════════════════════════════════════════ */
+
+/* Variables de layout — un solo lugar para ajustar */
+:root {
+  --mb-mascot-w:    460px;   /* ancho del contenedor de la mascota */
+  --mb-mascot-h:    720px;   /* alto (mayor que la sección → desborda arriba) */
+  --mb-mascot-left: 3%;      /* posición horizontal */
+  --mb-gap:         52px;    /* espacio entre mascota y card */
+}
+
+/* ── OUTER: espacio para el desborde superior ─────── */
+.mb-outer {
+  position: relative;      /* = mascot-h - section min-height */
+  background: #040f0c;
+}
+
+/* ── MASCOTA ─────────────────────────────────────── */
+.mb-mascot-wrap {
+  position: absolute;
+  bottom: 0;
+  left: var(--mb-mascot-left);
+  width: var(--mb-mascot-w);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.mb-mascot {
+  display: block;
+  width: 100%;
+  height: var(--mb-mascot-h);
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.6));
+}
+
+/* ── SECCIÓN (fondo oscuro) ──────────────────────── */
+.mb-section {
+  position: relative;
+  overflow: hidden;
+  background: #040f0c;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  /*
+    padding-left = left% + ancho mascota + gap
+    Se recalcula en cada breakpoint junto con las variables
+  */
+  padding: 36px 5% 36px calc(var(--mb-mascot-left) + var(--mb-mascot-w) + var(--mb-gap));
+}
+
+/* ── BLOBS ───────────────────────────────────────── */
+.mb-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mb-blob--tl {
+  top: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(22, 210, 110, 0.55) 0%, transparent 65%);
+  filter: blur(10px);
+}
+
+.mb-blob--br {
+  bottom: -70px;
+  right: -50px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(22, 210, 100, 0.45) 0%, transparent 65%);
+  filter: blur(10px);
+}
+
+/* ── CARD ────────────────────────────────────────── */
+.mb-card {
+  position: relative;
+  background: rgba(5, 35, 28, 0.7);
+  border: 1px solid rgba(18, 214, 160, 0.18);
+  border-radius: 0;
+  padding: 28px 36px 32px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  max-width: 680px;
+  width: 100%;
+}
+
+/* ── TAG ─────────────────────────────────────────── */
+.mb-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  background: #12d6a0;
+  border-radius: 0;
+  padding: 9px 64px 9px 18px;
+  margin-bottom: 18px;
+}
+
+.mb-tag span {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #000;
+  letter-spacing: 0.2px;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.mb-tag-stripes {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 5px,
+    rgba(0, 0, 0, 0.55) 5px,
+    rgba(0, 0, 0, 0.55) 10px
+  );
+}
+
+/* ── TEXTO PREGUNTA ──────────────────────────────── */
+.mb-question {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.7rem, 3.5vw, 2.7rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 0 0 26px 0;
+}
+
+/* ── BOTÓN ───────────────────────────────────────── */
+.mb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #1ac76a;
+  color: #fff;
+  border: none;
+  padding: 12px 26px 12px 14px;
+  border-radius: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 20px rgba(26, 199, 106, 0.35);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.mb-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(26, 199, 106, 0.5);
+}
+
+.mb-btn:active {
+  transform: translateY(0);
+}
+
+.mb-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mb-btn-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mb-mobile-break {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE — DESKTOP
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 1100px) {
+  :root {
+    --mb-mascot-w: 340px;
+    --mb-mascot-h: 460px;
+    --mb-gap: 44px;
+  }
+
+  .mb-outer {
+    padding-top: 170px;
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --mb-mascot-w: 280px;
+    --mb-mascot-h: 590px;
+    --mb-gap: 36px;
+  }
+
+  .mb-outer {
+    padding-top: 130px;
+  }
+
+  .mb-section {
+    min-height: 250px;
+  }
+
+  .mb-card {
+    padding: 22px 24px 26px;
+  }
+
+  .mb-question {
+    font-size: clamp(1.4rem, 3.2vw, 2rem);
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE — MOBILE (columna vertical)
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+  .mb-outer {
+    background: transparent;
+    padding-top: 0;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* La mascota vuelve al flujo normal */
+  .mb-mascot-wrap {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: 220px;
+    z-index: 2;
+    margin-bottom: -12px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mb-mascot {
+    height: 240px;
+    width: 100%;
+  }
+
+  .mb-section {
+    width: min(100%, 520px);
+    padding: 24px 5% 22px;
+    min-height: auto;
+    justify-content: center;
+    background: #040f0c;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  }
+
+  .mb-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 18px 22px;
+    max-width: 100%;
+  }
+
+  .mb-question {
+    font-size: clamp(1.6rem, 7vw, 2rem);
+  }
+
+  .mb-btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .mb-blob--tl {
+    top: -40px;
+    left: 8px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .mb-blob--br {
+    bottom: -45px;
+    right: 10px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .mb-mobile-break {
+    display: block;
+    height: 1.4rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .mb-mascot-wrap {
+    width: 160px;
+  }
+
+  .mb-mascot {
+    height: 180px;
+  }
+
+  .mb-tag span {
+    font-size: 0.88rem;
+  }
+}

@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Hero  from "../components/Hero/Hero";
 import Stats from "../components/Stats/Stats";
 import Plans from "../components/Plans/Plans";
+import MascotaBanner from "../assets/MascotaBanner/MascotaBanner";
 export default function HomePage() {
   return (
     <>
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Hero />
       <Plans />
       <Stats />
+      <MascotaBanner />
     </>
   );
 }

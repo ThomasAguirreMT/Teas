@@ -9,7 +9,7 @@ const slides = [
     theme: "gamer",
     title: <>Plan Gamer<br /><span className="gamer-gradient">Sin límites.</span></>,
     desc: "Conexión optimizada para gaming online con baja latencia, mayor estabilidad y prioridad en tráfico para que juegues sin lag ni interrupciones.",
-    cta: { label: "Conocer más →", href: "#gamer" },
+    cta: { label: "Conocer más →",  href: "https://wa.me/573160542489?text=Hola%2C%20Quiero%20saber%20más%20sobre%20el%20plan%20gamer" },
     checks: ["Baja latencia", "Ping estable", "Prioridad en tráfico gamer"],
   },
   {
@@ -17,7 +17,7 @@ const slides = [
     theme: "default",
     title: <>Tu hogar siempre<br /><span className="text-gradient">conectado.</span></>,
     desc: <>Disfruta <span style={{ color: "#00ae9d", fontWeight: 700 }}>streaming en 4K</span>, gaming sin lag y videollamadas cristalinas en todos tus dispositivos al mismo tiempo.</>,
-    cta: { label: "Ver plan hogar →", href: "#hogar" },
+    cta: { label: "Ver plan hogar →", href: "https://wa.me/573160542489?text=Hola%2C%20Quiero%20saber%20más%20sobre%20los%20planes%20hogar" },
     checks: ["Baja latencia", "Sin límite de datos", "Instalación express"],
   },
 ];
@@ -65,7 +65,7 @@ function PingMonitor() {
       <div className="flex justify-between mt-1.5">
         <span className="hero-ping-label text-[10px]">0ms</span>
         <span className="hero-ping-current text-xs font-black">{current}ms</span>
-        <span className="hero-ping-label text-[10px]">10ms</span>
+        <span className="hero-ping-label text-[10px]">100ms</span>
       </div>
     </div>
   );
