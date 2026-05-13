@@ -7,6 +7,8 @@ const navLinks = [
   { path: "/", label: "INICIO" },
   { path: "/cobertura", label: "COBERTURA" },
   { path: "/nosotros", label: "NOSOTROS" },
+  { path: "/Notiteo", label: "NOTICIAS" },
+
   { path: "/pagos", label: "PAGOS" },
   { path: "/contacto", label: "CONTACTO" },
 ];
@@ -69,7 +71,7 @@ export default function Navbar() {
         {/* LOGO */}
         <Link to="/" className="logo" aria-label="Ir al inicio">
           <img src={logo} alt="TEAS" />
-        </Link>   
+        </Link>
 
         {/* DESKTOP NAV */}
         <ul className="nav-links-desktop" role="list">

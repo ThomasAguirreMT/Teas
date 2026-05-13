@@ -1,6 +1,11 @@
 import { useState } from "react";
 import "./FloatingButtons.css";
-import { Gauge, MessageCircle, X } from "lucide-react";
+
+import {
+  Gauge,
+  MessageCircle,
+  X,
+} from "lucide-react";
 
 export default function FloatingButtons() {
   const [open, setOpen] = useState(false);
@@ -13,26 +18,32 @@ export default function FloatingButtons() {
 
   return (
     <>
-      {/* BOTÓN SPEED */}
+      {/* SPEED TEST */}
       <a
         href="https://www.speedtest.net/"
         target="_blank"
         rel="noopener noreferrer"
         className="floating-button speed"
       >
-        <span>MIDE TU VELOCIDAD</span>
-        <div className="icon speed-icon">
+        <span className="floating-text">
+          MIDE TU VELOCIDAD
+        </span>
+
+        <div className="floating-icon speed-floating-icon">
           <Gauge size={22} color="white" />
         </div>
       </a>
 
-      {/* BOTÓN WHATSAPP */}
+      {/* WHATSAPP */}
       <button
         className="floating-button whatsapp"
         onClick={() => setOpen(!open)}
       >
-        <span>CONTÁCTANOS</span>
-        <div className="icon whatsapp-icon">
+        <span className="floating-text">
+          CONTÁCTANOS
+        </span>
+
+        <div className="floating-icon floating-whatsapp-icon">
           <MessageCircle size={22} color="white" />
         </div>
       </button>
@@ -40,11 +51,16 @@ export default function FloatingButtons() {
       {/* PANEL */}
       {open && (
         <div className="contact-panel">
-          <div className="close-btn" onClick={() => setOpen(false)}>
+          <div
+            className="close-btn"
+            onClick={() => setOpen(false)}
+          >
             <X size={18} />
           </div>
 
-          <h4>¿Quieres contratar un plan?</h4>
+          <h4>
+            ¿Quieres contratar un plan?
+          </h4>
 
           {/* VENTAS */}
           <a
@@ -52,15 +68,26 @@ export default function FloatingButtons() {
             target="_blank"
             rel="noopener noreferrer"
             className={`contact-option ${
-              active === "ventas" ? "active" : ""
+              active === "ventas"
+                ? "active"
+                : ""
             }`}
-            onClick={() => handleClick("ventas")}
+            onClick={() =>
+              handleClick("ventas")
+            }
           >
-            <span>Línea de ventas</span>
-            <strong>316 0542489</strong>
+            <span className="contact-option-label">
+              Línea de ventas
+            </span>
+
+            <strong>
+              316 0542489
+            </strong>
           </a>
 
-          <h4>¿Requieres soporte técnico?</h4>
+          <h4>
+            ¿Requieres soporte técnico?
+          </h4>
 
           {/* SOPORTE */}
           <a
@@ -68,12 +95,21 @@ export default function FloatingButtons() {
             target="_blank"
             rel="noopener noreferrer"
             className={`contact-option ${
-              active === "soporte" ? "active" : ""
+              active === "soporte"
+                ? "active"
+                : ""
             }`}
-            onClick={() => handleClick("soporte")}
+            onClick={() =>
+              handleClick("soporte")
+            }
           >
-            <span>Soporte técnico</span>
-            <strong>316 0542489</strong>
+            <span className="contact-option-label">
+              Soporte técnico
+            </span>
+
+            <strong>
+              316 0542489
+            </strong>
           </a>
         </div>
       )}
