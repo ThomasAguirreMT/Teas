@@ -50,29 +50,24 @@ export default function Contactanos() {
 
           <div className="contacto-datos">
 
-            <a href="tel:018000123456" className="contacto-item">
-              <div>
-                <span>Línea nacional</span>
-                <p>01 8000 123 456</p>
-              </div>
-            </a>
+            
 
             <a
-              href="https://wa.me/573155550100"
+              href="https://wa.me/3160542489"
               target="_blank"
               rel="noopener noreferrer"
               className="contacto-item"
             >
               <div>
                 <span>WhatsApp</span>
-                <p>+57 315 555 0100</p>
+                <p>+57 316 054 2489</p>
               </div>
             </a>
 
             <a href="mailto:hola@teas.com.co" className="contacto-item">
               <div>
                 <span>Email</span>
-                <p>hola@teas.com.co</p>
+                <p>info@teas.com.co</p>
               </div>
             </a>
 
