@@ -3,6 +3,7 @@ import Hero  from "../components/Hero/Hero";
 import Stats from "../components/Stats/Stats";
 import Plans from "../components/Plans/Plans";
 import MascotaBanner from "../assets/MascotaBanner/MascotaBanner";
+import Proteccion from "../components/Proteccion/Proteccion";
 export default function HomePage() {
   return (
     <>
@@ -19,6 +20,7 @@ export default function HomePage() {
       <Hero />
       <Plans />
       <Stats />
+      <Proteccion />
       <MascotaBanner />
     </>
   );

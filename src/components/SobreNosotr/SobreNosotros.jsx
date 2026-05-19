@@ -55,7 +55,7 @@ const About = () => {
 
             <div className="stats-box stats-1">
                 <h2>100%</h2>
-                <span>Santisfaccion</span>
+                <span>Satisfaccion</span>
             </div>
 
             <div className="stats-box stats-2">

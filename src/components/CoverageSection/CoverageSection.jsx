@@ -36,7 +36,7 @@ const CoverageSection = () => {
 
             <div className="coverage-item">
               <h3>100%</h3>
-              <span>Santisfaccion</span>
+              <span>Satisfaccion</span>
             </div>
 
             <div className="coverage-item">
