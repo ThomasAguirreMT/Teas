@@ -49,7 +49,14 @@ export default function Footer() {
                     <ul>
                         <li>Colombia</li>
                         <li>
-                            <a href="tel:+573176683567">+57 317 6683567</a>
+                            <a
+                                href="https://wa.me/573160542489"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="tv-cta-button"
+                            >
+                                316 054 2489
+                            </a>
                         </li>
                         <li>
                             <a href="mailto:info@teas.com.co">

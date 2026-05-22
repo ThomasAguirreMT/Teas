@@ -13,7 +13,7 @@ const Notiteo = () => {
 
         <meta
           name="description"
-          content="Conoce nuestras noticias, eventos y novedades."
+          content="Conoce nuestras noticias, eventos y novedades. El mejor internet de Usme"
         />
       </Helmet>
 

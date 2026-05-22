@@ -7,21 +7,23 @@ import {
   FiUsers,
   FiZap,
 } from "react-icons/fi";
+import { FaFutbol } from "react-icons/fa";
 
 /* IMÁGENES */
 import noticia1 from "../../assets/noticias/n3.jpg";
 import noticia2 from "../../assets/noticias/niñosreunidos.jpg";
 import noticia3 from "../../assets/noticias/parquedejuegos.jpg";
+import video from "../../assets/noticias/futbol.mp4";
 
 const noticias = [
   {
-    image: noticia1,
-    category: "COMUNIDAD",
-    date: "15 MAY 2026",
-    icon: <FiUsers />,
-    title: "Más de 1.000 sonrisas para los niños del barrio",
-    desc: "Realizamos una nueva jornada de entrega de regalos junto a colectivos, recreacionistas y organizaciones comprometidas con nuestra comunidad.",
-    featured: true,
+    image: video,
+    isVideo: true,
+    category: "DEPORTES",
+    date: "14 AGO 2024",
+    icon: <FaFutbol />,
+    title: "PORQUE EL FUTBOL ES VIDA",
+    desc: "Vive la emoción del futbol con nosotros. Conectamos a la comunidad a través de eventos deportivos que unen a familias y amigos en torno a la pasión por el juego.",
   },
 
   {
@@ -40,6 +42,16 @@ const noticias = [
     icon: <FiZap />,
     title: "Seguimos creciendo junto a nuestra comunidad",
     desc: "Continuamos expandiendo nuestros proyectos sociales y tecnológicos para conectar más hogares y generar impacto positivo.",
+  },
+
+  {
+    image: noticia1,
+    category: "COMUNIDAD",
+    date: "15 MAY 2026",
+    icon: <FiUsers />,
+    title: "Más de 1.000 sonrisas para los niños del barrio",
+    desc: "Realizamos una nueva jornada de entrega de regalos junto a colectivos, recreacionistas y organizaciones comprometidas con nuestra comunidad.",
+    featured: true,
   },
 ];
 
@@ -94,18 +106,29 @@ const NoticiasSec = () => {
 
             <article
               key={index}
-              className={`noticia-card ${
-                item.featured ? "featured" : ""
-              }`}
+              className={`noticia-card ${item.featured ? "featured" : ""} ${item.isVideo ? "video-card" : ""}`}
             >
+
+              {/* BANDERA — solo en la card de video */}
+              {item.isVideo && <div className="noticias-bandera" />}
 
               {/* IMAGE */}
               <div className="noticia-image">
 
-                <img
-                  src={item.image}
-                  alt={item.title}
-                />
+                {item.isVideo ? (
+                  <video
+                    src={item.image}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                  />
+                )}
 
                 <div className="noticia-image-overlay"></div>
 
@@ -138,16 +161,6 @@ const NoticiasSec = () => {
                 <p>
                   {item.desc}
                 </p>
-
-                <button className="noticia-btn">
-
-                  <span>
-                    Explorar noticia
-                  </span>
-
-                  <FiArrowRight />
-
-                </button>
 
               </div>
 
