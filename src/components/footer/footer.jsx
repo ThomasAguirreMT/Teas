@@ -13,7 +13,7 @@ export default function Footer() {
                     <img src={logo} alt="Logo" className="footer-logo" />
 
                     <p>
-                        Conectamos empresas y hogares con tecnología de última generación.
+                        Conectamos hogares, negocios y empresas con tecnología de última generación.
                     </p>
 
                     <span className="footer-copy">
