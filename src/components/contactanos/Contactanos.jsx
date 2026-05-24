@@ -98,9 +98,11 @@ export default function Contactanos() {
 
             <select>
               <option>Seleccionar plan</option>
-              <option>100 MB</option>
               <option>300 MB</option>
+              <option>350 MB</option>
               <option>500 MB</option>
+              <option>700 MB</option>
+              <option>920 MB</option>
             </select>
 
             <button type="submit">

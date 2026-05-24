@@ -17,7 +17,7 @@ export default function Footer() {
                     </p>
 
                     <span className="footer-copy">
-                        ©Copyright 2026 Web Master. Todos los derechos reservados.
+                        ©Copyright 2026 <a href="https://www.webmastercolombia.net" target="_blank" rel="noopener noreferrer">Web Master Colombia</a>. Todos los derechos reservados.
                     </span>
                 </div>
 
@@ -27,8 +27,6 @@ export default function Footer() {
                     <ul>
                         <li><Link to="/internet">Internet</Link></li>
                         <li><Link to="/television">Televisión</Link></li>
-                        <li><Link to="/NosotrosPage">Nosotros</Link></li>
-                        <li><Link to="/CoberturaPage">Desarrollo de Software</Link></li>
                     </ul>
                 </div>
 
@@ -37,8 +35,7 @@ export default function Footer() {
                     <h4>Empresa</h4>
                     <ul>
                         <li><Link to="/NosotrosPage">Quiénes somos</Link></li>
-                        <li><Link to="/trabajaconnosotros">Trabaja con nosotros</Link></li>
-                        <li><Link to="/CoberturaPage">Soporte</Link></li>
+                        <li><Link to="/CoberturaPage">Cobertura</Link></li>
                         <li><Link to="/ContactoPage">Contacto</Link></li>
                     </ul>
                 </div>
