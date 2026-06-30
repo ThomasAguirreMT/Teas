@@ -259,3 +259,63 @@
     text-align: center;
   }
 }
+
+
+
+
+/* =========================
+   ICONOS REDES
+========================= */
+
+.contacto-icon{
+    width:58px;
+    height:58px;
+
+    flex-shrink:0;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#fff;
+
+    transition:.35s;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.contacto-icon img{
+    width:34px;
+    height:34px;
+    object-fit:contain;
+    transition:.35s;
+}
+
+.contacto-texto{
+    display:flex;
+    flex-direction:column;
+}
+
+.contacto-texto span{
+    font-size:13px;
+    color:#94a3b8;
+    margin-bottom:4px;
+}
+
+.contacto-texto p{
+    margin:0;
+    font-size:15px;
+    font-weight:600;
+}
+
+/* Hover */
+
+.contacto-item:hover .contacto-icon{
+    transform:rotate(-8deg) scale(1.08);
+}
+
+.contacto-item:hover .contacto-icon img{
+    transform:scale(1.1);
+}
