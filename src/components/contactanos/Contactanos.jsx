@@ -53,6 +53,44 @@ export default function Contactanos() {
             
 
             <a
+              href="https://www.facebook.com/people/Telecomunicaciones-avanzadas-del-Sur-TEAS/61551992221856/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contacto-item"
+            >
+              <div>
+                <span>Facebook</span>
+                <p>Telecomunicaciones avanzadas del Sur - TEAS</p>
+              </div>
+            </a>
+            
+
+             <a
+              href="https://www.instagram.com/teasusme/?fbclid=IwY2xjawRdtn5leHRuA2FlbQIxMABicmlkETE5bXF2Q01jQXl4dWtkOGRLc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHorNtrvzy4p2wtsdy0QHzBi9T9dyZy7Y84M7lDqXwZWd6qAKqIeLrHIjDp5I_aem_EHs7gnE-Cb-P4PKiUXHGsQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contacto-item"
+            >
+              <div>
+                <span>Instagram</span>
+                <p>teasusme</p>
+              </div>
+            </a>
+
+             <a
+              href="https://www.tiktok.com/@teasusme?is_from_webapp=1&sender_device=pc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contacto-item"
+            >
+              <div>
+                <span>Tik Tok</span>
+                <p>TEAS</p>
+              </div>
+            </a>
+
+
+             <a
               href="https://wa.me/3160542489"
               target="_blank"
               rel="noopener noreferrer"
@@ -98,7 +136,7 @@ export default function Contactanos() {
 
             <select>
               <option>Seleccionar plan</option>
-              <option>300 MB</option>
+              <option>200 MB</option>
               <option>350 MB</option>
               <option>500 MB</option>
               <option>700 MB</option>
