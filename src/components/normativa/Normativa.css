@@ -1,0 +1,417 @@
+/* =====================================================
+   NORMATIVA - WEB MASTER / TEAS
+===================================================== */
+
+.normativa {
+    position: relative;
+    overflow: hidden;
+    background: #05080f;
+    color: #fff;
+    padding: 110px 8%;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Luz ambiental superior */
+
+.normativa::before{
+    content:"";
+    position:absolute;
+    top:-180px;
+    left:50%;
+    transform:translateX(-50%);
+    width:900px;
+    height:500px;
+    background:
+        radial-gradient(circle,
+            rgba(38, 212, 189, 0.18),
+            transparent 72%);
+    pointer-events:none;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.normativa-header{
+
+    position:relative;
+    z-index:2;
+
+    max-width:850px;
+
+    margin:0 auto 70px;
+
+    text-align:center;
+}
+
+.badge{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:10px 24px;
+
+    border-radius:999px;
+
+    background:rgba(20,145,220,.12);
+
+    border:1px solid rgba(20,145,220,.35);
+
+    color:#10b981;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:24px;
+}
+
+.normativa-header h1{
+
+    font-size:54px;
+
+    font-weight:800;
+
+    line-height:1.15;
+
+    margin-bottom:22px;
+
+    color:#fff;
+}
+
+.normativa-header p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#bfc8d6;
+
+    font-size:18px;
+
+    line-height:1.9;
+}
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.normativa-card{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:1450px;
+
+    margin:auto;
+
+    padding:55px;
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(13,20,31,.98),
+            rgba(8,13,21,.98)
+        );
+
+    border:1px solid rgba(255,255,255,.06);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45);
+}
+
+.normativa-card h2{
+
+    position:relative;
+
+    width:fit-content;
+
+    margin:0 auto 45px;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:white;
+}
+
+.normativa-card h2::after{
+
+    content:"";
+
+    display:block;
+
+    width:70px;
+
+    height:4px;
+
+    margin:14px auto 0;
+
+    border-radius:10px;
+
+    background:#10b981;
+}
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.regulaciones-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+
+    gap:22px;
+}
+
+/* =====================================================
+   ITEMS
+===================================================== */
+
+.regulacion-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:18px 22px;
+
+    min-height:78px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.03),
+            rgba(255,255,255,.015)
+        );
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:
+
+        transform .30s ease,
+
+        background .30s ease,
+
+        border-color .30s ease,
+
+        box-shadow .30s ease;
+}
+
+.regulacion-item:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#10b981;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(26,167,215,.18),
+            rgba(26,167,215,.05)
+        );
+
+    box-shadow:
+
+        0 12px 35px rgba(26,167,215,.18);
+}
+
+/* =====================================================
+   ICONO
+===================================================== */
+
+.regulacion-item span{
+
+    width:46px;
+
+    height:46px;
+
+    min-width:46px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(26,167,215,.12);
+
+    border:1px solid rgba(26,167,215,.20);
+
+    color:#10b981;
+
+    font-size:18px;
+}
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.regulacion-item p{
+
+    flex:1;
+
+    margin:0;
+
+    color:#eef2f7;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    line-height:1.45;
+}
+
+.regulacion-item:visited{
+
+    color:white;
+}
+
+/* =====================================================
+   FLECHA
+===================================================== */
+
+.regulacion-arrow{
+
+    margin-left:auto;
+
+    color:#10b981;
+
+    font-size:18px;
+
+    opacity:.5;
+
+    transition:.25s;
+}
+
+.regulacion-item:hover .regulacion-arrow{
+
+    opacity:1;
+
+    transform:translateX(5px);
+}
+
+/* =====================================================
+   SCROLL
+===================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+
+    background:#05080f;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#10b981;
+
+    border-radius:30px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#10b981;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .regulaciones-grid{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .normativa{
+
+        padding:80px 24px;
+    }
+
+    .normativa-header{
+
+        margin-bottom:45px;
+    }
+
+    .normativa-header h1{
+
+        font-size:38px;
+    }
+
+    .normativa-header p{
+
+        font-size:16px;
+    }
+
+    .normativa-card{
+
+        padding:28px;
+    }
+
+    .normativa-card h2{
+
+        font-size:26px;
+    }
+
+    .regulaciones-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .regulacion-item{
+
+        min-height:72px;
+
+        padding:16px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .badge{
+
+        font-size:11px;
+    }
+
+    .normativa-header h1{
+
+        font-size:30px;
+    }
+
+    .regulacion-item p{
+
+        font-size:14px;
+    }
+
+}

@@ -60,10 +60,25 @@ export default function Footer() {
                                 info@teas.com.co
                             </a>
                         </li>
-                        <li><Link to="/pqr">Radica aqui tu PQR</Link></li>
 
                     </ul>
                 </div>
+
+
+                <div className="footer-col">
+                    <h4>INFORMACIÓN LEGAL</h4>
+
+
+                    <ul>
+                        <li><Link to="/proteccioninfantil">Protección Infantil</Link></li>
+                        <li><Link to="/normativa">Protección al usuario y Normativa</Link></li>
+                        <li><Link to="/pqr">Radica aqui tu PQR</Link></li>
+
+
+                    </ul>
+
+                </div>
+
             </div>
         </footer>
     );
