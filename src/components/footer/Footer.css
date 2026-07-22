@@ -16,7 +16,7 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(77,163,255,0.6),
+    rgb(12, 153, 106),
     transparent
   );
 }
@@ -112,7 +112,7 @@
 }
 
 .footer-col ul li:hover {
-  color: #4da3ff;
+  color: #10b981;
 }
 
 
@@ -144,7 +144,7 @@
 }
 
 .footer a:hover {
-  color: #4da3ff;
+  color: #10b981;
 }
 
 /* opcional: quitar el azul visitado */
