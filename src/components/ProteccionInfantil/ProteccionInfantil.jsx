@@ -33,7 +33,7 @@ export default function Pinfantil() {
                 "Es la ley colombiana que busca prevenir y combatir la explotación, la pornografía y el turismo sexual con menores de edad mediante medidas de protección y control."
         },
         {
-            pregunta: "¿Qué hace WEB MASTER para proteger a los menores?",
+            pregunta: "¿Qué hace TEAS para proteger a los menores?",
             respuesta:
                 "Promovemos el uso responsable de Internet, apoyamos campañas de prevención y facilitamos el acceso a canales oficiales para denunciar contenido ilegal."
         },
@@ -64,7 +64,7 @@ export default function Pinfantil() {
 
                 <p>
 
-                    En WEB MASTER promovemos el uso responsable de Internet y
+                    En TEAS promovemos el uso responsable de Internet y
                     apoyamos la prevención de la explotación sexual infantil,
                     el acceso a contenido ilegal y cualquier forma de violencia
                     digital.
@@ -395,7 +395,7 @@ export default function Pinfantil() {
                 <h2>Compromiso con la Protección Infantil</h2>
 
                 <p>
-                    WEB MASTER rechaza cualquier forma de explotación sexual infantil,
+                    TEAS rechaza cualquier forma de explotación sexual infantil,
                     pornografía con menores y cualquier actividad ilegal relacionada
                     con niños, niñas y adolescentes. Trabajamos en cumplimiento de la
                     Ley 679 de 2001 y apoyamos todas las iniciativas orientadas a la
